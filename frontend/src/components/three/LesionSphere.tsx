@@ -1,106 +1,241 @@
 import { Html, OrbitControls } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import { useMemo, useState } from "react";
+import { Canvas, useThree, type ThreeEvent } from "@react-three/fiber";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { DoubleSide, InstancedMesh, MOUSE, NormalBlending } from "three";
+import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import type { Vector3Tuple } from "three";
 
-import LesionLegend from "../diagnosis/LesionLegend";
-import { LESION_COLORS, LESION_LABELS, LESION_ORDER, type DiagnosisResult } from "../../types/diagnosis";
+import { LESION_COLORS, LESION_LABELS, LESION_ORDER, type DiagnosisResult, type LesionKey } from "../../types/diagnosis";
+import {
+  buildLesionPoints,
+  buildPillarBatches,
+  buildPillars,
+  createBoundaryTexture,
+  createOrientationTexture,
+  createPillarMatrix,
+  SEVERITY_LABELS,
+  type LesionPoint,
+  type PillarSpec,
+} from "./lesion-sphere-geometry";
+import "./lesion-sphere.css";
 
-interface Marker {
-  lesion: (typeof LESION_ORDER)[number];
-  position: Vector3Tuple;
-  size: number;
-}
+const INITIAL_CAMERA: Vector3Tuple = [0, 0.12, 3.35];
+
+type InteractionMode = "rotate" | "pan";
+type LesionFilter = "ALL" | LesionKey;
 
 interface LesionSphereProps {
   diagnosis: DiagnosisResult;
 }
 
-function seededValue(seed: number) {
-  const x = Math.sin(seed) * 10000;
-  return x - Math.floor(x);
+interface InstancedPillarBatchProps {
+  lesion: LesionKey;
+  specs: PillarSpec[];
+  onActive: (point: LesionPoint | null) => void;
 }
 
-function toSpherePoint(index: number, total: number, seed: number): Vector3Tuple {
-  const offset = 2 / Math.max(total, 1);
-  const y = 1 - (index + 0.5) * offset;
-  const radius = Math.sqrt(Math.max(1 - y * y, 0));
-  const theta = (index * Math.PI * (3 - Math.sqrt(5))) + seededValue(seed) * Math.PI * 0.6;
-  return [radius * Math.cos(theta), y, radius * Math.sin(theta)];
+interface SceneProps extends LesionSphereProps {
+  resetSignal: number;
+  interactionMode: InteractionMode;
+  lesionFilter: LesionFilter;
 }
 
-function buildMarkers(diagnosis: DiagnosisResult): Marker[] {
-  const markers: Marker[] = [];
-  LESION_ORDER.forEach((lesion, lesionIndex) => {
-    const count = Math.min(Math.max(diagnosis.lesion_counts[lesion], 0), 48);
-    const area = diagnosis.lesion_areas[lesion];
-    const markerTotal = count > 0 ? Math.max(1, Math.min(count, 18)) : area > 0 ? 1 : 0;
-    for (let index = 0; index < markerTotal; index += 1) {
-      markers.push({
-        lesion,
-        position: toSpherePoint(index + lesionIndex * 19, markerTotal + 60, diagnosis.id + lesionIndex * 13),
-        size: Math.max(0.045, Math.min(0.13, 0.045 + area * 0.018)),
-      });
+function InstancedPillarBatch({ lesion, specs, onActive }: InstancedPillarBatchProps) {
+  const meshRef = useRef<InstancedMesh>(null);
+  const matrices = useMemo(() => specs.map((spec) => createPillarMatrix(spec)), [specs]);
+
+  useEffect(() => {
+    const mesh = meshRef.current;
+    if (!mesh) return;
+
+    matrices.forEach((matrix, index) => {
+      mesh.setMatrixAt(index, matrix);
+    });
+    mesh.instanceMatrix.needsUpdate = true;
+    mesh.computeBoundingSphere();
+  }, [matrices]);
+
+  if (specs.length === 0) {
+    return null;
+  }
+
+  const handlePointerMove = (event: ThreeEvent<PointerEvent>) => {
+    event.stopPropagation();
+    if (typeof event.instanceId === "number") {
+      onActive(specs[event.instanceId]?.point ?? null);
     }
-  });
-  return markers;
+  };
+
+  return (
+    <instancedMesh
+      ref={meshRef}
+      args={[undefined, undefined, specs.length]}
+      onPointerMove={handlePointerMove}
+      onPointerOut={() => onActive(null)}
+    >
+      <cylinderGeometry args={[1, 1, 1, 12, 1]} />
+      <meshStandardMaterial color={LESION_COLORS[lesion]} roughness={0.5} metalness={0} />
+    </instancedMesh>
+  );
 }
 
-function Scene({ diagnosis }: LesionSphereProps) {
-  const [active, setActive] = useState<Marker | null>(null);
-  const markers = useMemo(() => buildMarkers(diagnosis), [diagnosis]);
+function CameraControls({ resetSignal, interactionMode }: { resetSignal: number; interactionMode: InteractionMode }) {
+  const controlsRef = useRef<OrbitControlsImpl>(null);
+  const { camera } = useThree();
+  const mouseButtons = useMemo(
+    () => ({
+      LEFT: interactionMode === "pan" ? MOUSE.PAN : MOUSE.ROTATE,
+      MIDDLE: MOUSE.DOLLY,
+      RIGHT: interactionMode === "pan" ? MOUSE.ROTATE : MOUSE.PAN,
+    }),
+    [interactionMode],
+  );
+
+  useEffect(() => {
+    camera.position.set(...INITIAL_CAMERA);
+    camera.lookAt(0, 0, 0);
+    controlsRef.current?.target.set(0, 0, 0);
+    controlsRef.current?.update();
+  }, [camera, resetSignal]);
+
+  return (
+    <OrbitControls
+      ref={controlsRef}
+      makeDefault
+      enablePan
+      enableZoom
+      enableRotate
+      minDistance={1.75}
+      maxDistance={5.2}
+      panSpeed={0.72}
+      rotateSpeed={0.82}
+      mouseButtons={mouseButtons}
+    />
+  );
+}
+
+function Scene({ diagnosis, resetSignal, interactionMode, lesionFilter }: SceneProps) {
+  const [active, setActive] = useState<LesionPoint | null>(null);
+  const allLesionPoints = useMemo(() => buildLesionPoints(diagnosis), [diagnosis]);
+  const lesionPoints = useMemo(
+    () => (lesionFilter === "ALL" ? allLesionPoints : allLesionPoints.filter((point) => point.lesion === lesionFilter)),
+    [allLesionPoints, lesionFilter],
+  );
+  const pillars = useMemo(() => buildPillars(lesionPoints), [lesionPoints]);
+  const pillarBatches = useMemo(() => buildPillarBatches(pillars), [pillars]);
+  const boundaryTexture = useMemo(() => createBoundaryTexture(lesionPoints), [lesionPoints]);
+  const orientationTexture = useMemo(() => createOrientationTexture(), []);
 
   return (
     <>
-      <ambientLight intensity={0.55} />
-      <directionalLight position={[3, 4, 5]} intensity={1.35} />
+      <ambientLight intensity={0.66} />
+      <directionalLight position={[3, 4, 5]} intensity={0.9} />
       <mesh>
         <sphereGeometry args={[1, 64, 64]} />
-        <meshStandardMaterial color="#c8d0dc" transparent opacity={0.24} roughness={0.62} />
+        <meshStandardMaterial color="#d8dde5" transparent opacity={0.24} roughness={0.72} />
       </mesh>
       <mesh>
         <sphereGeometry args={[1.01, 48, 48]} />
-        <meshBasicMaterial color="#49627f" wireframe transparent opacity={0.12} />
+        <meshBasicMaterial color="#5e7189" wireframe transparent opacity={0.008} />
       </mesh>
-      {markers.map((marker, index) => (
-        <mesh
-          key={`${marker.lesion}-${index}`}
-          position={marker.position.map((value) => value * 1.08) as Vector3Tuple}
-          onPointerOver={(event) => {
-            event.stopPropagation();
-            setActive(marker);
-          }}
-          onPointerOut={() => setActive(null)}
-        >
-          <boxGeometry args={[marker.size, marker.size, marker.size]} />
-          <meshStandardMaterial color={LESION_COLORS[marker.lesion]} roughness={0.35} />
+      {orientationTexture ? (
+        <mesh>
+          <sphereGeometry args={[1.025, 96, 96]} />
+          <meshBasicMaterial
+            map={orientationTexture}
+            transparent
+            opacity={1}
+            depthWrite={false}
+            blending={NormalBlending}
+            side={DoubleSide}
+          />
         </mesh>
+      ) : null}
+      {LESION_ORDER.map((lesion) => (
+        <InstancedPillarBatch key={lesion} lesion={lesion} specs={pillarBatches[lesion]} onActive={setActive} />
       ))}
+      {boundaryTexture && lesionPoints.length > 0 ? (
+        <mesh>
+          <sphereGeometry args={[1.046, 128, 128]} />
+          <meshBasicMaterial
+            map={boundaryTexture}
+            transparent
+            opacity={1}
+            depthWrite={false}
+            blending={NormalBlending}
+            side={DoubleSide}
+          />
+        </mesh>
+      ) : null}
       {active ? (
         <Html position={active.position.map((value) => value * 1.32) as Vector3Tuple} center>
           <div className="lesion-tooltip">
             <strong>{LESION_LABELS[active.lesion]}</strong>
             <span>{diagnosis.lesion_counts[active.lesion]} 处</span>
             <span>{diagnosis.lesion_areas[active.lesion].toFixed(4)}%</span>
+            <span>高度分级：{SEVERITY_LABELS[active.severity]}</span>
           </div>
         </Html>
       ) : null}
-      <OrbitControls enablePan={false} minDistance={2.1} maxDistance={4.4} />
+      <CameraControls resetSignal={resetSignal} interactionMode={interactionMode} />
     </>
   );
 }
 
 export default function LesionSphere({ diagnosis }: LesionSphereProps) {
+  const [resetSignal, setResetSignal] = useState(0);
+  const [interactionMode, setInteractionMode] = useState<InteractionMode>("rotate");
+  const [lesionFilter, setLesionFilter] = useState<LesionFilter>("ALL");
+  const lesionPoints = useMemo(() => buildLesionPoints(diagnosis), [diagnosis]);
+
   return (
-    <div className="lesion-sphere">
-      <div className="sphere-legend">
-        <LesionLegend />
+    <div className={`lesion-sphere is-${interactionMode}-mode`}>
+      <div className="sphere-legend" aria-label="病灶视图筛选">
+        <button
+          className={lesionFilter === "ALL" ? "is-active" : ""}
+          type="button"
+          onClick={() => setLesionFilter("ALL")}
+        >
+          全部
+        </button>
+        {LESION_ORDER.map((lesion) => (
+          <button
+            key={lesion}
+            className={lesionFilter === lesion ? "is-active" : ""}
+            type="button"
+            onClick={() => setLesionFilter(lesion)}
+          >
+            <span className="sphere-legend-dot" style={{ background: LESION_COLORS[lesion] }} />
+            {LESION_LABELS[lesion]}
+          </button>
+        ))}
       </div>
-      <Canvas camera={{ position: [0, 0.2, 3.1], fov: 45 }}>
-        <Scene diagnosis={diagnosis} />
+      <div className="sphere-mode-switch" aria-label="3D 交互模式">
+        <button
+          className={interactionMode === "rotate" ? "is-active" : ""}
+          type="button"
+          onClick={() => setInteractionMode("rotate")}
+        >
+          旋转
+        </button>
+        <button className={interactionMode === "pan" ? "is-active" : ""} type="button" onClick={() => setInteractionMode("pan")}>
+          平移
+        </button>
+      </div>
+      <button className="sphere-reset-button" type="button" onClick={() => setResetSignal((value) => value + 1)}>
+        重置视角
+      </button>
+      <div className="sphere-orientation-note">
+        {interactionMode === "pan" ? "平移模式：左键拖动画布移动整个球体，滚轮缩放" : "旋转模式：左键拖动旋转球体，滚轮缩放"}
+      </div>
+      {lesionPoints.length === 0 ? (
+        <div className="sphere-empty-note">该诊断记录缺少真实 3D 病灶坐标，请重新诊断后查看对应分布</div>
+      ) : null}
+      <Canvas className="sphere-canvas" camera={{ position: INITIAL_CAMERA, fov: 42 }}>
+        <Scene diagnosis={diagnosis} resetSignal={resetSignal} interactionMode={interactionMode} lesionFilter={lesionFilter} />
       </Canvas>
       <div className="sphere-summary">
-        {LESION_ORDER.map((lesion) => (
+        {(lesionFilter === "ALL" ? LESION_ORDER : [lesionFilter]).map((lesion) => (
           <span key={lesion}>
             {LESION_LABELS[lesion]} {diagnosis.lesion_counts[lesion]} / {diagnosis.lesion_areas[lesion].toFixed(3)}%
           </span>

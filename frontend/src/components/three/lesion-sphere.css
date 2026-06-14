@@ -5,17 +5,150 @@
   border: 1px solid rgba(255, 255, 255, 0.52);
   border-radius: 8px;
   background:
-    radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.95), rgba(210, 222, 238, 0.52) 45%, rgba(20, 33, 61, 0.08) 100%);
+    radial-gradient(circle at 50% 44%, rgba(34, 48, 78, 0.2), rgba(226, 233, 242, 0.64) 48%, rgba(33, 49, 77, 0.12) 100%);
 }
 
 .sphere-legend {
   position: absolute;
   z-index: 2;
-  top: 14px;
-  right: 14px;
-  padding: 8px 10px;
+  top: 12px;
+  left: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 7px 9px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.76);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 22px rgba(36, 52, 77, 0.08);
+}
+
+.sphere-legend button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 22px;
+  padding: 3px 6px;
+  border: 0;
+  border-radius: 6px;
+  color: rgba(31, 45, 68, 0.78);
+  font-size: 13px;
+  line-height: 1;
+  background: transparent;
+  cursor: pointer;
+}
+
+.sphere-legend button:hover {
+  background: rgba(57, 112, 255, 0.1);
+}
+
+.sphere-legend button.is-active {
+  color: #173f8a;
+  background: rgba(57, 112, 255, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(57, 112, 255, 0.2);
+}
+
+.sphere-legend-dot {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+
+.sphere-mode-switch {
+  position: absolute;
+  z-index: 3;
+  top: 78px;
+  left: 14px;
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 8px 22px rgba(36, 52, 77, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.sphere-mode-switch button {
+  min-width: 42px;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: 6px;
+  color: rgba(38, 54, 79, 0.72);
+  font-size: 12px;
+  line-height: 1;
+  background: transparent;
+  cursor: pointer;
+}
+
+.sphere-mode-switch button.is-active {
+  color: #173f8a;
+  background: rgba(57, 112, 255, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(57, 112, 255, 0.18);
+}
+
+.sphere-orientation-note {
+  position: absolute;
+  z-index: 2;
+  top: 116px;
+  left: 14px;
+  padding: 5px 9px;
+  border-radius: 8px;
+  color: rgba(38, 54, 79, 0.76);
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(12px);
+}
+
+.sphere-reset-button {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  right: 14px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 8px;
+  color: rgba(38, 54, 79, 0.82);
+  font-size: 12px;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 8px 22px rgba(36, 52, 77, 0.08);
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+}
+
+.sphere-reset-button:hover {
+  color: #173f8a;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.sphere-canvas {
+  cursor: grab;
+}
+
+.lesion-sphere.is-pan-mode .sphere-canvas {
+  cursor: move;
+}
+
+.sphere-canvas:active {
+  cursor: grabbing;
+}
+
+.sphere-empty-note {
+  position: absolute;
+  z-index: 2;
+  right: 14px;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  color: rgba(38, 54, 79, 0.82);
+  font-size: 13px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(14px);
 }
 
