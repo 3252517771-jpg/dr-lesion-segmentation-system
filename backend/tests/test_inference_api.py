@@ -74,7 +74,10 @@ def test_stats_endpoints(client, app):
 
     lesions = client.get("/api/stats/lesions")
     assert lesions.status_code == 200
-    assert len(lesions.get_json()["lesion_frequencies"]) == 4
+    lesion_frequencies = lesions.get_json()["lesion_frequencies"]
+    assert len(lesion_frequencies) == 4
+    assert lesion_frequencies[0]["total_count"] >= lesion_frequencies[0]["count"]
+    assert "total_area" in lesion_frequencies[0]
 
     trend = client.get("/api/stats/trend?days=7")
     assert trend.status_code == 200

@@ -25,19 +25,27 @@ class StatsService:
     @staticmethod
     def lesion_frequencies() -> dict:
         diagnoses = Diagnosis.query.filter_by(is_deleted=False).all()
-        counts = {lesion: 0 for lesion in LESION_CLASSES}
+        present_counts = {lesion: 0 for lesion in LESION_CLASSES}
+        total_counts = {lesion: 0 for lesion in LESION_CLASSES}
+        total_areas = {lesion: 0.0 for lesion in LESION_CLASSES}
         total = max(len(diagnoses), 1)
         for diagnosis in diagnoses:
             lesion_counts = diagnosis.lesion_counts or {}
+            lesion_areas = diagnosis.lesion_areas or {}
             for lesion in LESION_CLASSES:
-                if lesion_counts.get(lesion, 0) > 0:
-                    counts[lesion] += 1
+                lesion_count = int(lesion_counts.get(lesion, 0) or 0)
+                if lesion_count > 0:
+                    present_counts[lesion] += 1
+                total_counts[lesion] += lesion_count
+                total_areas[lesion] += float(lesion_areas.get(lesion, 0.0) or 0.0)
         return {
             "lesion_frequencies": [
                 {
                     "lesion_type": lesion,
-                    "count": counts[lesion],
-                    "percentage": round(counts[lesion] / total * 100.0, 2),
+                    "count": present_counts[lesion],
+                    "percentage": round(present_counts[lesion] / total * 100.0, 2),
+                    "total_count": total_counts[lesion],
+                    "total_area": round(total_areas[lesion], 4),
                 }
                 for lesion in LESION_CLASSES
             ]

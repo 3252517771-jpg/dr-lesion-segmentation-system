@@ -1,0 +1,96 @@
+.dashboard-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.dashboard-stats {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dashboard-chart-row {
+  grid-template-columns: minmax(0, 1.18fr) minmax(360px, 0.82fr);
+}
+
+.dashboard-main-chart {
+  margin-top: 16px;
+}
+
+.dashboard-chart-loading {
+  display: grid;
+  min-height: 260px;
+  margin-top: 16px;
+  place-items: center;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.dashboard-chart-loading strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-strong);
+}
+
+.dashboard-recent {
+  margin-top: 16px;
+}
+
+.dashboard-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.dashboard-card-title h2 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.dashboard-card-title span {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.dashboard-frequency-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.dashboard-frequency-item {
+  min-height: 74px;
+  padding: 12px;
+  border: 1px solid rgba(20, 33, 61, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.dashboard-frequency-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.dashboard-frequency-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dashboard-frequency-value {
+  margin-top: 8px;
+  color: var(--text-strong);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.dashboard-frequency-meta {
+  color: var(--text-muted);
+  font-size: 12px;
+}

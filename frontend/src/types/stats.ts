@@ -8,6 +8,8 @@ export interface LesionFrequency {
   lesion_type: string;
   count: number;
   percentage: number;
+  total_count: number;
+  total_area: number;
 }
 
 export interface LesionFrequencyResponse {
