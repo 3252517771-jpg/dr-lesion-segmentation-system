@@ -2,6 +2,9 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .env
+dev-*.log
+backend/dev-*.log
+frontend/dev-*.log
 node_modules/
 dist/
 frontend/node_modules/
