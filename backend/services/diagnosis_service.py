@@ -31,6 +31,7 @@ class DiagnosisService:
         contour_path: str | None,
         lesion_areas: dict,
         lesion_counts: dict,
+        lesion_positions: dict | None,
         severity: str,
         notes: str = "",
     ) -> Diagnosis:
@@ -44,6 +45,7 @@ class DiagnosisService:
             contour_path=contour_path,
             lesion_areas=lesion_areas or {},
             lesion_counts=lesion_counts or {},
+            lesion_positions=lesion_positions or {},
             severity=severity or "正常",
             notes=notes or "",
         )

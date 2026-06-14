@@ -38,6 +38,9 @@ def test_placeholder_diagnose_flow(client, app):
     assert diagnosis["id"] > 0
     assert diagnosis["contour_url"].startswith("/api/images/uploads/contours/")
     assert diagnosis["image_url"].startswith("/api/images/uploads/originals/")
+    assert set(diagnosis["lesion_positions"]) == {"HE", "EX", "MA", "SE"}
+    assert diagnosis["lesion_positions"]["HE"][0]["x"] > 0
+    assert diagnosis["lesion_positions"]["HE"][0]["area"] > 0
 
     image_response = client.get(diagnosis["contour_url"])
     assert image_response.status_code == 200
@@ -46,6 +49,7 @@ def test_placeholder_diagnose_flow(client, app):
     detail_response = client.get(f"/api/diagnoses/{diagnosis['id']}")
     assert detail_response.status_code == 200
     assert detail_response.get_json()["diagnosis"]["severity"] == "中度 NPDR"
+    assert detail_response.get_json()["diagnosis"]["lesion_positions"]["EX"][0]["bbox"]
 
 
 def test_diagnose_validation_errors(client, app):

@@ -28,6 +28,16 @@ export const LESION_COLORS: Record<keyof LesionStats, string> = {
 
 export const LESION_ORDER = ["HE", "EX", "MA", "SE"] as const;
 
+export type LesionKey = (typeof LESION_ORDER)[number];
+
+export interface LesionPosition {
+  x: number;
+  y: number;
+  area: number;
+  area_ratio: number;
+  bbox: [number, number, number, number];
+}
+
 export interface DiagnosisResult {
   id: number;
   patient_id: number;
@@ -38,6 +48,7 @@ export interface DiagnosisResult {
   contour_url?: string | null;
   lesion_areas: LesionStats;
   lesion_counts: LesionCounts;
+  lesion_positions?: Record<LesionKey, LesionPosition[]>;
   severity: string;
   notes: string;
   created_at: string;

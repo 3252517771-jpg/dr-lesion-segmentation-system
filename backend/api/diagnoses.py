@@ -35,6 +35,7 @@ def create_diagnosis():
         contour_path=data.get("contour_path"),
         lesion_areas=data.get("lesion_areas", {}),
         lesion_counts=data.get("lesion_counts", {}),
+        lesion_positions=data.get("lesion_positions", {}),
         severity=data.get("severity", "正常"),
         notes=data.get("notes", ""),
     )

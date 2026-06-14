@@ -11,6 +11,7 @@ from ml.utils import (
     compute_lesion_areas,
     compute_lesion_counts,
     estimate_severity,
+    extract_lesion_positions,
     generate_contour_image,
     load_rgb_image,
     postprocess_multiclass_masks,
@@ -78,6 +79,7 @@ class RealInference:
 
         lesion_areas = compute_lesion_areas(masks, (original_height, original_width), self.config.lesion_classes)
         lesion_counts = compute_lesion_counts(masks, self.config.lesion_classes)
+        lesion_positions = extract_lesion_positions(masks, (original_height, original_width), self.config.lesion_classes)
         severity = estimate_severity(lesion_areas, lesion_counts)
         contour_path = None
         if contour_dir is not None:
@@ -86,6 +88,7 @@ class RealInference:
         return {
             "lesion_areas": lesion_areas,
             "lesion_counts": lesion_counts,
+            "lesion_positions": lesion_positions,
             "severity": severity,
             "contour_path": contour_path,
             "masks": masks,

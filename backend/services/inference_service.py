@@ -31,6 +31,7 @@ class InferenceService:
             contour_path=result["contour_path"],
             lesion_areas=result["lesion_areas"],
             lesion_counts=result["lesion_counts"],
+            lesion_positions=result.get("lesion_positions", {}),
             severity=result["severity"],
         )
         return {"diagnosis": diagnosis.to_dict(), "mode": result["mode"]}
@@ -67,6 +68,7 @@ class InferenceService:
         return {
             "lesion_areas": result["lesion_areas"],
             "lesion_counts": result["lesion_counts"],
+            "lesion_positions": result.get("lesion_positions", {}),
             "severity": result["severity"],
             "contour_path": contour_path,
             "mode": "real",
@@ -105,6 +107,23 @@ class InferenceService:
         return {
             "lesion_areas": {"HE": 1.8, "EX": 0.9, "MA": 0.3, "SE": 0.6},
             "lesion_counts": {"HE": 8, "EX": 4, "MA": 12, "SE": 2},
+            "lesion_positions": {
+                label: [
+                    {
+                        "x": round((box[0] + box[2]) / 2, 4),
+                        "y": round((box[1] + box[3]) / 2, 4),
+                        "area": int((box[2] - box[0]) * width * (box[3] - box[1]) * height),
+                        "area_ratio": round((box[2] - box[0]) * (box[3] - box[1]) * 100, 4),
+                        "bbox": [
+                            int(box[0] * width),
+                            int(box[1] * height),
+                            int((box[2] - box[0]) * width),
+                            int((box[3] - box[1]) * height),
+                        ],
+                    }
+                ]
+                for label, _color, box in boxes
+            },
             "severity": "中度 NPDR",
             "contour_path": ImageService.relative_to_backend(contour_path, Path(current_app.root_path)),
             "mode": "placeholder",

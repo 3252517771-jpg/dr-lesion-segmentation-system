@@ -81,6 +81,7 @@ class Diagnosis(db.Model):
     contour_path = db.Column(db.String(500), nullable=True)
     lesion_areas = db.Column(JSONField, default=dict, nullable=False)
     lesion_counts = db.Column(JSONField, default=dict, nullable=False)
+    lesion_positions = db.Column(JSONField, default=dict, nullable=False)
     severity = db.Column(db.String(50), default="正常", nullable=False)
     notes = db.Column(db.Text, default="", nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), default=utc_now, nullable=False)
@@ -102,6 +103,7 @@ class Diagnosis(db.Model):
             "contour_url": f"/api/images/{contour_path}" if contour_path else None,
             "lesion_areas": self.lesion_areas,
             "lesion_counts": self.lesion_counts,
+            "lesion_positions": self.lesion_positions,
             "severity": self.severity,
             "notes": self.notes,
             "created_at": self.created_at.isoformat() if self.created_at else None,

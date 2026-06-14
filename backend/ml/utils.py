@@ -149,6 +149,53 @@ def compute_lesion_counts(
     return counts
 
 
+def extract_lesion_positions(
+    masks: np.ndarray,
+    image_shape: tuple[int, int],
+    lesion_classes: tuple[str, ...] = LESION_CLASSES,
+    max_components: dict[str, int] | None = None,
+) -> dict[str, list[dict]]:
+    height, width = image_shape
+    total_pixels = max(height * width, 1)
+    limits = max_components or {"HE": 80, "EX": 80, "MA": 160, "SE": 50}
+    positions: dict[str, list[dict]] = {}
+
+    for index, lesion in enumerate(lesion_classes):
+        binary = (masks[index] > 0).astype(np.uint8)
+        num_labels, labels, stats, centroids = cv2.connectedComponentsWithStats(binary, connectivity=8)
+        components: list[dict] = []
+
+        for label in range(1, num_labels):
+            area = int(stats[label, cv2.CC_STAT_AREA])
+            if area <= 0:
+                continue
+            x, y, box_width, box_height = (
+                int(stats[label, cv2.CC_STAT_LEFT]),
+                int(stats[label, cv2.CC_STAT_TOP]),
+                int(stats[label, cv2.CC_STAT_WIDTH]),
+                int(stats[label, cv2.CC_STAT_HEIGHT]),
+            )
+            centroid_x, centroid_y = centroids[label]
+            components.append(
+                {
+                    "x": round(float(centroid_x) / max(width, 1), 6),
+                    "y": round(float(centroid_y) / max(height, 1), 6),
+                    "area": area,
+                    "area_ratio": round(area / total_pixels * 100.0, 6),
+                    "bbox": [x, y, box_width, box_height],
+                }
+            )
+
+        limit = limits.get(lesion)
+        if limit is not None and len(components) > limit:
+            components = sorted(components, key=lambda item: item["area"], reverse=True)[:limit]
+        else:
+            components = sorted(components, key=lambda item: item["area"], reverse=True)
+        positions[lesion] = components
+
+    return positions
+
+
 def estimate_severity(lesion_areas: dict[str, float], lesion_counts: dict[str, int] | None = None) -> str:
     lesion_counts = lesion_counts or {}
     if all(lesion_areas.get(lesion, 0.0) <= 0 for lesion in LESION_CLASSES):

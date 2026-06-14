@@ -17,6 +17,7 @@ from ml.utils import (
     compute_lesion_areas,
     compute_lesion_counts,
     estimate_severity,
+    extract_lesion_positions,
     generate_contour_image,
     postprocess_multiclass_masks,
 )
@@ -55,8 +56,14 @@ def test_postprocess_filters_noise_and_metrics(tmp_path):
 
     areas = compute_lesion_areas(processed, image.shape[:2])
     counts = compute_lesion_counts(processed)
+    positions = extract_lesion_positions(processed, image.shape[:2])
     assert areas["HE"] > 0
     assert counts["HE"] == 1
+    assert len(positions["HE"]) == 1
+    assert 0 < positions["HE"][0]["x"] < 1
+    assert 0 < positions["HE"][0]["y"] < 1
+    assert positions["HE"][0]["area"] > 0
+    assert len(positions["HE"][0]["bbox"]) == 4
     assert estimate_severity({"HE": 0, "EX": 0, "MA": 0, "SE": 0}) == "正常"
 
     contour_path = generate_contour_image(image, processed, tmp_path, filename="contour.png")
@@ -79,5 +86,6 @@ def test_real_model_loads_and_predicts_on_small_image(tmp_path):
 
     assert set(result["lesion_areas"]) == {"HE", "EX", "MA", "SE"}
     assert set(result["lesion_counts"]) == {"HE", "EX", "MA", "SE"}
+    assert set(result["lesion_positions"]) == {"HE", "EX", "MA", "SE"}
     assert result["masks"].shape == (4, 160, 160)
     assert Path(result["contour_path"]).exists()
