@@ -16,6 +16,13 @@ export interface PatientCreate {
   patient_id: string;
 }
 
+export interface PatientUpdate {
+  name?: string;
+  gender?: string;
+  age?: number;
+  patient_id?: string;
+}
+
 export interface PatientListResponse {
   patients: Patient[];
   total: number;

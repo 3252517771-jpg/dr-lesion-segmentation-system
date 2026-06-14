@@ -14,6 +14,12 @@ class Config:
     APP_NAME = os.getenv("APP_NAME", "DR Lesion Segmentation")
     DEBUG = os.getenv("DEBUG", "true").lower() == "true"
     SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key")
+    SESSION_COOKIE_SAMESITE = "Lax"
+    SESSION_COOKIE_HTTPONLY = True
+
+    DEFAULT_ADMIN_USERNAME = os.getenv("DEFAULT_ADMIN_USERNAME", "admin")
+    DEFAULT_ADMIN_PASSWORD = os.getenv("DEFAULT_ADMIN_PASSWORD", "admin123")
+    DEFAULT_ADMIN_DISPLAY_NAME = os.getenv("DEFAULT_ADMIN_DISPLAY_NAME", "系统管理员")
 
     SQLALCHEMY_DATABASE_URI = os.getenv(
         "DATABASE_URL",

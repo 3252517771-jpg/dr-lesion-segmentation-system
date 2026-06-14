@@ -9,7 +9,7 @@ BACKEND_DIR = Path(__file__).resolve().parents[1]
 if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
 
-from app import create_app
+from app import create_app, init_runtime_database
 from config import TestConfig
 from extensions import db
 
@@ -18,7 +18,7 @@ from extensions import db
 def app():
     flask_app = create_app(TestConfig)
     with flask_app.app_context():
-        db.create_all()
+        init_runtime_database(flask_app)
         yield flask_app
         db.session.remove()
         db.drop_all()
@@ -26,4 +26,11 @@ def app():
 
 @pytest.fixture()
 def client(app):
+    test_client = app.test_client()
+    test_client.post("/api/auth/login", json={"username": "admin", "password": "admin123"})
+    return test_client
+
+
+@pytest.fixture()
+def anonymous_client(app):
     return app.test_client()

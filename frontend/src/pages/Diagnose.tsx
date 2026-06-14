@@ -11,12 +11,14 @@ import { useDiagnose } from "../hooks/mutations/useDiagnose";
 import { useCreatePatient } from "../hooks/mutations/usePatientMutations";
 import { usePatients } from "../hooks/queries/usePatients";
 import type { DiagnosisResult } from "../types/diagnosis";
+import type { PatientCreate } from "../types/patient";
 
 const { Dragger } = Upload;
 
 export default function Diagnose() {
-  const [form] = Form.useForm();
-  const patients = usePatients();
+  const [diagnoseForm] = Form.useForm<{ patient_id: number }>();
+  const [patientForm] = Form.useForm<PatientCreate>();
+  const patients = usePatients({ size: 100 });
   const diagnose = useDiagnose();
   const createPatient = useCreatePatient();
   const [fileList, setFileList] = useState<UploadFile[]>([]);
@@ -27,17 +29,18 @@ export default function Diagnose() {
     [patients.data],
   );
 
-  async function handleCreatePatient(values: { name: string; gender: string; age: number; patient_id: string }) {
+  async function handleCreatePatient(values: PatientCreate) {
     const patient = await createPatient.mutateAsync(values);
-    form.setFieldValue("patient_id", patient.id);
+    diagnoseForm.setFieldValue("patient_id", patient.id);
+    patientForm.resetFields();
     message.success("患者已创建");
   }
 
   async function handleDiagnose() {
-    const patientId = form.getFieldValue("patient_id");
+    const patientId = diagnoseForm.getFieldValue("patient_id");
     const file = fileList[0]?.originFileObj;
     if (!patientId || !file) {
-      message.warning("请选择患者并上传图片");
+      message.warning("请选择患者并上传眼底图片");
       return;
     }
     const response = await diagnose.mutateAsync({ patientId, file });
@@ -51,9 +54,9 @@ export default function Diagnose() {
       <p className="page-subtitle">上传眼底图像，生成四类病灶量化报告</p>
       <div className="content-grid two-column">
         <GlassCard>
-          <Form form={form} layout="vertical">
-            <Form.Item label="选择患者" name="patient_id">
-              <Select options={patientOptions} loading={patients.isLoading} placeholder="选择已有患者" />
+          <Form form={diagnoseForm} layout="vertical">
+            <Form.Item label="选择患者" name="patient_id" rules={[{ required: true, message: "请选择患者" }]}>
+              <Select showSearch optionFilterProp="label" options={patientOptions} loading={patients.isLoading} />
             </Form.Item>
             <Dragger
               maxCount={1}
@@ -80,20 +83,22 @@ export default function Diagnose() {
           </Form>
         </GlassCard>
         <GlassCard>
-          <Form layout="vertical" onFinish={handleCreatePatient}>
-            <Form.Item label="姓名" name="name" rules={[{ required: true }]}>
+          <Form form={patientForm} layout="vertical" onFinish={handleCreatePatient} initialValues={{ gender: "female" }}>
+            <Form.Item label="姓名" name="name" rules={[{ required: true, message: "请输入姓名" }]}>
               <Input />
             </Form.Item>
-            <Form.Item label="病历号" name="patient_id" rules={[{ required: true }]}>
+            <Form.Item label="病历号" name="patient_id" rules={[{ required: true, message: "请输入病历号" }]}>
               <Input />
             </Form.Item>
-            <Form.Item label="性别" name="gender" rules={[{ required: true }]}>
-              <Select options={[{ value: "男" }, { value: "女" }]} />
+            <Form.Item label="性别" name="gender" rules={[{ required: true, message: "请选择性别" }]}>
+              <Select options={[{ value: "male", label: "男" }, { value: "female", label: "女" }]} />
             </Form.Item>
-            <Form.Item label="年龄" name="age" rules={[{ required: true }]}>
+            <Form.Item label="年龄" name="age" rules={[{ required: true, message: "请输入年龄" }]}>
               <InputNumber min={0} max={150} style={{ width: "100%" }} />
             </Form.Item>
-            <Button htmlType="submit" loading={createPatient.isPending}>创建患者</Button>
+            <Button htmlType="submit" loading={createPatient.isPending}>
+              创建患者
+            </Button>
           </Form>
         </GlassCard>
       </div>

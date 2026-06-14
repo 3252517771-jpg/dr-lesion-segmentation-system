@@ -65,8 +65,8 @@ API（只解析请求/返回 JSON）
 ### ✅ 这个项目要做
 
 - 1 个 Attention UNet 病灶分割模型（4 类：HE/EX/MA/SE）
-- 1 个 Flask 后端（上传/诊断/患者/统计/图片服务）
-- 1 个 React 前端（Dashboard / Diagnose / DiagnosisDetail / Patients / PatientDetail）
+- 1 个 Flask 后端（登录验证/用户/上传/诊断/患者/统计/图片服务）
+- 1 个 React 前端（Login / Dashboard / Diagnose / DiagnosisDetail / Patients / PatientDetail / Users）
 - Three.js 精简球体病灶分布（仅详情页）
 - ECharts 3D 统计图表（Dashboard）
 - 诊断结果以量化报告为主、病灶轮廓图为辅
@@ -75,7 +75,7 @@ API（只解析请求/返回 JSON）
 
 ### ❌ 这个项目明确不做
 
-- 用户登录/注册/权限体系（单机演示，不做认证）
+- 完整注册/找回密码/复杂权限体系（仅保留医生/病人的最小登录验证）
 - 分类任务（不做 DR 0-4 分级预测，只做分割）
 - 模型训练在本机运行（只在 Kaggle 上训）
 - 分布式/远程推理服务

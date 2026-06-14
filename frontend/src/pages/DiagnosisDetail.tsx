@@ -1,24 +1,25 @@
 import { lazy, Suspense, useState } from "react";
-import { Button, Form, Input, Tabs } from "antd";
+import { Button, Form, Input, Tabs, message } from "antd";
 import { useParams } from "react-router-dom";
 
 import { updateDiagnosisNotes } from "../api/diagnoses";
 import DiagnosisReport from "../components/diagnosis/DiagnosisReport";
 import LesionContour from "../components/diagnosis/LesionContour";
 import GlassCard from "../components/ui/GlassCard";
+import { useCurrentUser } from "../hooks/queries/useAuth";
 import { useDiagnosis } from "../hooks/queries/useDiagnoses";
 import "../components/three/lesion-sphere.css";
 
 const LesionSphere = lazy(() => import("../components/three/LesionSphere"));
 
 export default function DiagnosisDetail() {
-  const params = useParams();
-  const diagnosisId = Number(params.id);
+  const diagnosisId = Number(useParams().id);
   const diagnosis = useDiagnosis(diagnosisId);
+  const currentUser = useCurrentUser();
   const [activeTab, setActiveTab] = useState("contour");
 
-  if (diagnosis.isLoading) return <GlassCard>加载中...</GlassCard>;
-  if (!diagnosis.data) return <GlassCard>诊断记录不存在</GlassCard>;
+  if (diagnosis.isLoading) return <GlassCard>诊断记录加载中...</GlassCard>;
+  if (!diagnosis.data) return <GlassCard>诊断记录不存在或无权访问</GlassCard>;
 
   return (
     <>
@@ -26,20 +27,23 @@ export default function DiagnosisDetail() {
       <div className="content-grid two-column">
         <GlassCard>
           <DiagnosisReport diagnosis={diagnosis.data} />
-          <Form
-            layout="vertical"
-            style={{ marginTop: 18 }}
-            initialValues={{ notes: diagnosis.data.notes }}
-            onFinish={async (values) => {
-              await updateDiagnosisNotes(diagnosisId, values.notes);
-              diagnosis.refetch();
-            }}
-          >
-            <Form.Item label="备注" name="notes">
-              <Input.TextArea rows={3} />
-            </Form.Item>
-            <Button htmlType="submit">保存备注</Button>
-          </Form>
+          {currentUser.data?.role === "doctor" ? (
+            <Form
+              layout="vertical"
+              style={{ marginTop: 18 }}
+              initialValues={{ notes: diagnosis.data.notes }}
+              onFinish={async (values) => {
+                await updateDiagnosisNotes(diagnosisId, values.notes);
+                await diagnosis.refetch();
+                message.success("备注已保存");
+              }}
+            >
+              <Form.Item label="备注" name="notes">
+                <Input.TextArea rows={3} />
+              </Form.Item>
+              <Button htmlType="submit">保存备注</Button>
+            </Form>
+          ) : null}
         </GlassCard>
         <GlassCard>
           <Tabs

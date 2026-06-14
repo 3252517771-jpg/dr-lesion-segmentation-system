@@ -30,6 +30,22 @@ a {
   color: var(--text-muted);
 }
 
+.page-heading-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.page-heading-row .page-title {
+  margin-bottom: 8px;
+}
+
+.page-heading-row .page-subtitle {
+  margin: 0;
+}
+
 .content-grid {
   display: grid;
   gap: 16px;

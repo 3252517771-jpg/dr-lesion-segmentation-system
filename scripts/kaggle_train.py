@@ -28,7 +28,63 @@ from torch.amp import GradScaler, autocast
 from torch.utils.data import DataLoader, Dataset
 from tqdm import tqdm
 
-from postprocess_masks import postprocess_multiclass_masks
+try:
+    from postprocess_masks import postprocess_multiclass_masks
+except ImportError:
+    # Kaggle notebooks often run this file as a single pasted script. Keep the
+    # post-processing fallback here so validation visualization still works.
+    def _build_fundus_roi(image_rgb: np.ndarray) -> np.ndarray:
+        gray = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2GRAY)
+        roi = (gray > 12).astype(np.uint8)
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15, 15))
+        roi = cv2.morphologyEx(roi, cv2.MORPH_CLOSE, kernel)
+        roi = cv2.morphologyEx(roi, cv2.MORPH_OPEN, kernel)
+        num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(roi, connectivity=8)
+        if num_labels <= 1:
+            return np.ones(gray.shape, dtype=np.uint8)
+        largest_label = 1 + int(np.argmax(stats[1:, cv2.CC_STAT_AREA]))
+        roi = (labels == largest_label).astype(np.uint8)
+        height, width = roi.shape
+        margin = max(1, int(min(height, width) * 0.04))
+        erode_kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (margin * 2 + 1, margin * 2 + 1))
+        return cv2.erode(roi, erode_kernel, iterations=1).astype(np.uint8)
+
+    def _filter_connected_components(mask: np.ndarray, min_area: int, keep_largest: int | None) -> np.ndarray:
+        binary = (mask > 0).astype(np.uint8)
+        num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(binary, connectivity=8)
+        if num_labels <= 1:
+            return binary
+        components: list[tuple[int, int]] = []
+        for label in range(1, num_labels):
+            area = int(stats[label, cv2.CC_STAT_AREA])
+            if area >= min_area:
+                components.append((label, area))
+        if keep_largest is not None and len(components) > keep_largest:
+            components = sorted(components, key=lambda item: item[1], reverse=True)[:keep_largest]
+        output = np.zeros_like(binary)
+        for label, _area in components:
+            output[labels == label] = 1
+        return output
+
+    def postprocess_multiclass_masks(
+        masks: np.ndarray,
+        image_rgb: np.ndarray,
+        lesion_classes: tuple[str, ...] = ("HE", "EX", "MA", "SE"),
+    ) -> np.ndarray:
+        if masks.ndim != 3:
+            raise ValueError(f"Expected masks with shape [C,H,W], got {masks.shape}")
+        min_area = {"HE": 10, "EX": 12, "MA": 3, "SE": 16}
+        keep_largest = {"HE": 80, "EX": 80, "MA": 160, "SE": 50}
+        roi = _build_fundus_roi(image_rgb)
+        processed = np.zeros_like(masks, dtype=np.uint8)
+        for class_index, lesion in enumerate(lesion_classes):
+            mask = (masks[class_index] > 0).astype(np.uint8) * roi
+            processed[class_index] = _filter_connected_components(
+                mask,
+                min_area=min_area.get(lesion, 1),
+                keep_largest=keep_largest.get(lesion),
+            )
+        return processed
 
 try:
     import albumentations as A
@@ -80,9 +136,11 @@ EVAL_THRESHOLDS = (0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50)
 MODEL_PATH = OUTPUT_DIR / "attention_unet_dr.pth"
 BEST_LOSS_MODEL_PATH = OUTPUT_DIR / "attention_unet_dr_patch_best_loss.pth"
 BEST_DICE_MODEL_PATH = OUTPUT_DIR / "attention_unet_dr_patch_best_dice.pth"
-HISTORY_PATH = OUTPUT_DIR / "training_history_patch.json"
+HISTORY_PATH = OUTPUT_DIR / "training_history.json"
+PATCH_HISTORY_PATH = OUTPUT_DIR / "training_history_patch.json"
 THRESHOLDS_PATH = OUTPUT_DIR / "recommended_thresholds_patch.json"
-SAMPLES_PATH = OUTPUT_DIR / "validation_samples_patch.png"
+SAMPLES_PATH = OUTPUT_DIR / "validation_samples.png"
+PATCH_SAMPLES_PATH = OUTPUT_DIR / "validation_samples_patch.png"
 
 IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
@@ -1106,6 +1164,9 @@ for epoch in range(1, EPOCHS + 1):
 
     with open(HISTORY_PATH, "w", encoding="utf-8") as file:
         json.dump(history, file, indent=2)
+    if PATCH_HISTORY_PATH != HISTORY_PATH:
+        with open(PATCH_HISTORY_PATH, "w", encoding="utf-8") as file:
+            json.dump(history, file, indent=2)
 
     if val_loss < best_val_loss:
         best_val_loss = val_loss
@@ -1214,6 +1275,8 @@ def save_validation_samples(
     fig.suptitle("Validation Samples: original image and lesion masks", fontsize=16)
     plt.tight_layout()
     plt.savefig(SAMPLES_PATH, dpi=150, bbox_inches="tight")
+    if PATCH_SAMPLES_PATH != SAMPLES_PATH:
+        plt.savefig(PATCH_SAMPLES_PATH, dpi=150, bbox_inches="tight")
     plt.show()
     print(f"Saved validation samples -> {SAMPLES_PATH}")
 

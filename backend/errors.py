@@ -31,6 +31,26 @@ class DuplicatePatientIdError(AppError):
         super().__init__("DUPLICATE_PATIENT_ID", "病历号已存在", 400)
 
 
+class UserNotFoundError(AppError):
+    def __init__(self):
+        super().__init__("USER_NOT_FOUND", "用户不存在", 404)
+
+
+class DuplicateUsernameError(AppError):
+    def __init__(self):
+        super().__init__("DUPLICATE_USERNAME", "用户名已存在", 400)
+
+
+class AuthenticationError(AppError):
+    def __init__(self, message: str = "请先登录"):
+        super().__init__("AUTHENTICATION_REQUIRED", message, 401)
+
+
+class PermissionDeniedError(AppError):
+    def __init__(self, message: str = "没有权限执行该操作"):
+        super().__init__("PERMISSION_DENIED", message, 403)
+
+
 class InvalidImageError(AppError):
     def __init__(self, message: str = "图片格式不支持"):
         super().__init__("INVALID_IMAGE", message, 400)

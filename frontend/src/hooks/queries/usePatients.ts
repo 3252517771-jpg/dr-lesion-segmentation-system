@@ -2,8 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 
 import { getPatient, getPatients } from "../../api/patients";
 
-export function usePatients(search?: string) {
-  return useQuery({ queryKey: ["patients", search], queryFn: () => getPatients({ size: 100, search }) });
+export function usePatients(params?: { page?: number; size?: number; search?: string }) {
+  return useQuery({
+    queryKey: ["patients", params],
+    queryFn: () => getPatients({ size: 100, ...params }),
+  });
 }
 
 export function usePatient(id: number) {

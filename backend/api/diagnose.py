@@ -3,6 +3,7 @@ from __future__ import annotations
 from flask import Blueprint, jsonify, request
 
 from errors import ValidationError
+from services.auth_service import doctor_required
 from services.inference_service import InferenceService
 
 
@@ -10,6 +11,7 @@ diagnose_bp = Blueprint("diagnose", __name__)
 
 
 @diagnose_bp.post("/diagnose")
+@doctor_required
 def diagnose():
     if "image" not in request.files:
         raise ValidationError("请上传眼底图片")

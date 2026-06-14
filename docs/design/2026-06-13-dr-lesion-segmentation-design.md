@@ -310,7 +310,7 @@ Sigmoid → 阈值 0.5 → 二值掩码（4 通道）
 ```
 期末二/
 ├── backend/
-│   ├── api/                 # Blueprint：health / patients / diagnoses / stats / images
+│   ├── api/                 # Blueprint：auth / health / users / patients / diagnoses / stats / images
 │   ├── database/            # SQLAlchemy 模型
 │   ├── ml/                  # Attention UNet 定义 + 推理 + 工具函数
 │   │   ├── model.py         # Attention UNet 模型定义
@@ -362,7 +362,15 @@ Sigmoid → 阈值 0.5 → 二值掩码（4 通道）
 
 | 方法 | 路由 | 说明 |
 |------|------|------|
+| POST | /api/auth/login | 医生/病人登录 |
+| POST | /api/auth/logout | 退出登录 |
+| GET | /api/auth/me | 当前登录用户 |
 | GET | /api/health | 健康检查 + 模型状态 |
+| GET | /api/users | 用户列表（医生） |
+| POST | /api/users | 新建医生/病人账号（医生） |
+| GET | /api/users/:id | 用户详情（医生） |
+| PUT | /api/users/:id | 更新用户（医生） |
+| DELETE | /api/users/:id | 删除用户（医生） |
 | POST | /api/patients | 新建患者 |
 | GET | /api/patients | 患者列表（分页/搜索） |
 | GET | /api/patients/:id | 患者详情 |
@@ -384,6 +392,12 @@ Sigmoid → 阈值 0.5 → 二值掩码（4 通道）
 id, name, gender, age, patient_id, created_at, is_deleted
 ```
 
+**User**
+```
+id, username, display_name, password_hash, role(doctor|patient),
+linked_patient_id, is_active, created_at, is_deleted
+```
+
 **Diagnosis**
 ```
 id, patient_id (FK), image_path, contour_path,
@@ -402,6 +416,8 @@ severity, notes, created_at, is_deleted
 | /diagnose/:id | 诊断详情 | 量化报告 + 轮廓图 + Three.js 3D 展示 |
 | /patients | 患者列表 | CRUD、搜索、分页 |
 | /patients/:id | 患者详情 | 该患者所有诊断历史 |
+| /users | 用户管理 | 医生/病人账号 CRUD |
+| /my-records | 我的记录 | 病人查看关联患者诊断记录 |
 
 ### 7.1 全局布局
 

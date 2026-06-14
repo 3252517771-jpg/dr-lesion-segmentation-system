@@ -66,6 +66,45 @@ class Patient(db.Model):
             diagnosis.soft_delete()
 
 
+class User(db.Model):
+    __tablename__ = "users"
+    __table_args__ = (
+        CheckConstraint("role IN ('doctor', 'patient')", name="ck_users_role"),
+        Index("idx_users_username", "username"),
+        Index("idx_users_role", "role"),
+        Index("idx_users_deleted", "is_deleted"),
+    )
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    display_name = db.Column(db.String(100), nullable=False)
+    password_hash = db.Column(db.String(255), nullable=False)
+    role = db.Column(db.String(20), nullable=False, default="doctor")
+    linked_patient_id = db.Column(db.Integer, db.ForeignKey("patients.id"), nullable=True)
+    is_active = db.Column(db.Boolean, default=True, nullable=False)
+    created_at = db.Column(db.DateTime(timezone=True), default=utc_now, nullable=False)
+    updated_at = db.Column(db.DateTime(timezone=True), default=utc_now, onupdate=utc_now, nullable=False)
+    is_deleted = db.Column(db.Boolean, default=False, nullable=False)
+
+    linked_patient = db.relationship("Patient", lazy="joined")
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "username": self.username,
+            "display_name": self.display_name,
+            "role": self.role,
+            "linked_patient_id": self.linked_patient_id,
+            "linked_patient_name": self.linked_patient.name if self.linked_patient else None,
+            "is_active": self.is_active,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+            "updated_at": self.updated_at.isoformat() if self.updated_at else None,
+        }
+
+    def soft_delete(self) -> None:
+        self.is_deleted = True
+
+
 class Diagnosis(db.Model):
     __tablename__ = "diagnoses"
     __table_args__ = (
