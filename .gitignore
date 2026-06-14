@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+
+backend/retina_seg.db
+backend/instance/
+backend/uploads/originals/*
+backend/uploads/contours/*
+!backend/uploads/originals/.gitkeep
+!backend/uploads/contours/.gitkeep
+
+*.pth
+*.pt
+data/archive/
+data/archive.zip

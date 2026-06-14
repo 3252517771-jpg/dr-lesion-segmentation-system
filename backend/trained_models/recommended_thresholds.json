@@ -1,0 +1,28 @@
+{
+  "thresholds": {
+    "HE": 0.5,
+    "EX": 0.5,
+    "MA": 0.5,
+    "SE": 0.5
+  },
+  "best_dice_epoch": 46,
+  "best_mean_dice": 0.17759479079975166,
+  "per_class": {
+    "HE": {
+      "threshold": 0.5,
+      "dice": 0.14080396709980164
+    },
+    "EX": {
+      "threshold": 0.5,
+      "dice": 0.13849418826293255
+    },
+    "MA": {
+      "threshold": 0.5,
+      "dice": 0.016153739045628092
+    },
+    "SE": {
+      "threshold": 0.5,
+      "dice": 0.4149272687906443
+    }
+  }
+}
