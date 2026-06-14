@@ -90,12 +90,16 @@ class Diagnosis(db.Model):
     patient = db.relationship("Patient", back_populates="diagnoses")
 
     def to_dict(self) -> dict:
+        image_path = self.image_path.replace("\\", "/") if self.image_path else None
+        contour_path = self.contour_path.replace("\\", "/") if self.contour_path else None
         return {
             "id": self.id,
             "patient_id": self.patient_id,
             "patient_name": self.patient.name if self.patient else None,
-            "image_path": self.image_path,
-            "contour_path": self.contour_path,
+            "image_path": image_path,
+            "contour_path": contour_path,
+            "image_url": f"/api/images/{image_path}" if image_path else None,
+            "contour_url": f"/api/images/{contour_path}" if contour_path else None,
             "lesion_areas": self.lesion_areas,
             "lesion_counts": self.lesion_counts,
             "severity": self.severity,

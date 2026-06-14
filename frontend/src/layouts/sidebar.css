@@ -1,0 +1,36 @@
+.sidebar {
+  width: 228px;
+  padding: 22px 14px;
+  border-right: 1px solid rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.52);
+  backdrop-filter: var(--glass-blur);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 12px;
+  margin-bottom: 24px;
+  font-weight: 800;
+  color: #173166;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  height: 42px;
+  padding: 0 12px;
+  margin-bottom: 6px;
+  color: #4b587c;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.nav-item.active,
+.nav-item:hover {
+  color: #173166;
+  background: rgba(53, 104, 255, 0.11);
+}
