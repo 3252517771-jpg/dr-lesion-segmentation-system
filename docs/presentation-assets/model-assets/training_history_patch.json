@@ -1,0 +1,4402 @@
+[
+  {
+    "epoch": 1,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.03908228718580838,
+    "val_loss": 0.024247651857217688,
+    "train_dice": {
+      "HE": 0.03122925564513092,
+      "EX": 0.02955889091516423,
+      "MA": 0.0019956531120264385,
+      "SE": 0.05167697435612293
+    },
+    "val_dice": {
+      "HE": 0.021226430783411365,
+      "EX": 0.01094214244759591,
+      "MA": 0.00045608072358652754,
+      "SE": 0.03681004255869263
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.0904814749956131,
+      "EX": 0.020477349559466045,
+      "MA": 0.31858693559964496,
+      "SE": 0.1783422753214836
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.042313866905475915,
+      "EX": 0.024264631890936902,
+      "MA": 0.025260970486622108,
+      "SE": 0.0666307752069674
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.021226430783411365
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.01094214244759591
+      },
+      "MA": {
+        "threshold": 0.4,
+        "dice": 0.0007815363845138838
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.03681004255869263
+      }
+    },
+    "val_best_mean_dice": 0.017440038043553447,
+    "train_dice_valid_samples": {
+      "HE": 943,
+      "EX": 752,
+      "MA": 1026,
+      "SE": 351
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 285.6302492618561
+  },
+  {
+    "epoch": 2,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.035166713241341845,
+    "val_loss": 0.02247504013646769,
+    "train_dice": {
+      "HE": 0.03324053169343844,
+      "EX": 0.06724311380055674,
+      "MA": 0.001052067739084639,
+      "SE": 0.09588786066276607
+    },
+    "val_dice": {
+      "HE": 0.019471903781132005,
+      "EX": 0.01257092970089339,
+      "MA": 4.087781052169709e-05,
+      "SE": 0.03362180389537969
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.05910225212574005,
+      "EX": 0.07927562048037846,
+      "MA": 0.014234309395154318,
+      "SE": 0.11475371072689693
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.023509075767115542,
+      "EX": 0.08373786038474033,
+      "MA": 0.0032908289056075247,
+      "SE": 0.09169755248646987
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.019471903781132005
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.01257092970089339
+      },
+      "MA": {
+        "threshold": 0.4,
+        "dice": 0.001164017550322707
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.03362180389537969
+      }
+    },
+    "val_best_mean_dice": 0.01670716373193195,
+    "train_dice_valid_samples": {
+      "HE": 951,
+      "EX": 780,
+      "MA": 1037,
+      "SE": 347
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 191.35924339294434
+  },
+  {
+    "epoch": 3,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.0298186473976383,
+    "val_loss": 0.019964159722596207,
+    "train_dice": {
+      "HE": 0.026759454259027152,
+      "EX": 0.10204747450952148,
+      "MA": 0.00029298973125321755,
+      "SE": 0.09242937891941526
+    },
+    "val_dice": {
+      "HE": 0.004900926347066699,
+      "EX": 0.028395932090158265,
+      "MA": 5.9678357533606135e-05,
+      "SE": 0.06277409341967198
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.02879008650779724,
+      "EX": 0.07477917025486629,
+      "MA": 0.001416526734828949,
+      "SE": 0.06210711350043615
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.0032741596836498694,
+      "EX": 0.08276312994329553,
+      "MA": 0.001689273435132284,
+      "SE": 0.07872341102675388
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.4,
+        "dice": 0.01425451233537983
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.028395932090158265
+      },
+      "MA": {
+        "threshold": 0.4,
+        "dice": 0.0010233191644533001
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.06277409341967198
+      }
+    },
+    "val_best_mean_dice": 0.026611964252415844,
+    "train_dice_valid_samples": {
+      "HE": 928,
+      "EX": 766,
+      "MA": 1046,
+      "SE": 343
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 191.88021731376648
+  },
+  {
+    "epoch": 4,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.02646508954426483,
+    "val_loss": 0.01742813574937766,
+    "train_dice": {
+      "HE": 0.027075172739712165,
+      "EX": 0.14029043937964644,
+      "MA": 0.0006903794430602862,
+      "SE": 0.13835933313795062
+    },
+    "val_dice": {
+      "HE": 0.024815777690660835,
+      "EX": 0.032435046967820846,
+      "MA": 0.0004733973329560373,
+      "SE": 0.07015137185982799
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.021213990946610767,
+      "EX": 0.05431552231311798,
+      "MA": 0.0009534830848375956,
+      "SE": 0.0482755775252978
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.09762331823769368,
+      "EX": 0.038014246248885206,
+      "MA": 0.004402245970835027,
+      "SE": 0.039838464636551704
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.024815777690660835
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.032435046967820846
+      },
+      "MA": {
+        "threshold": 0.4,
+        "dice": 0.001279777401853635
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.07015137185982799
+      }
+    },
+    "val_best_mean_dice": 0.03217049348004083,
+    "train_dice_valid_samples": {
+      "HE": 961,
+      "EX": 806,
+      "MA": 1018,
+      "SE": 360
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 193.51633739471436
+  },
+  {
+    "epoch": 5,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.025274896653801903,
+    "val_loss": 0.01569680300784991,
+    "train_dice": {
+      "HE": 0.07104314959516844,
+      "EX": 0.12332940456261368,
+      "MA": 0.002566608217413853,
+      "SE": 0.14738559694193668
+    },
+    "val_dice": {
+      "HE": 0.03805642366199136,
+      "EX": 0.034858363815515804,
+      "MA": 0.0009228783225488158,
+      "SE": 0.06789634254133323
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.10153551151355107,
+      "EX": 0.05193726718425751,
+      "MA": 0.005912430584430695,
+      "SE": 0.04413082947333654
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.031135664468533115,
+      "EX": 0.03504638667953642,
+      "MA": 0.0039838339251122975,
+      "SE": 0.039409496870480086
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.03805642366199136
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.034858363815515804
+      },
+      "MA": {
+        "threshold": 0.4,
+        "dice": 0.0016158872414521422
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.06789634254133323
+      }
+    },
+    "val_best_mean_dice": 0.03560675431507314,
+    "train_dice_valid_samples": {
+      "HE": 920,
+      "EX": 760,
+      "MA": 1063,
+      "SE": 367
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 195.68166208267212
+  },
+  {
+    "epoch": 6,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.02387645963686409,
+    "val_loss": 0.016320521374476836,
+    "train_dice": {
+      "HE": 0.07876823639645995,
+      "EX": 0.1306863678991498,
+      "MA": 0.006719440898792575,
+      "SE": 0.18083570645349287
+    },
+    "val_dice": {
+      "HE": 0.03567168121205527,
+      "EX": 0.034292400488967374,
+      "MA": 0.0010687174186506266,
+      "SE": 0.10007253466306364
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.08226355413595836,
+      "EX": 0.05166390538215637,
+      "MA": 0.015757118662198383,
+      "SE": 0.04399893432855606
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.037172949921927954,
+      "EX": 0.06851616423381002,
+      "MA": 0.006424903869628906,
+      "SE": 0.031188257234661204
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.03567168121205527
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.034292400488967374
+      },
+      "MA": {
+        "threshold": 0.4,
+        "dice": 0.0014334874188837905
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.10007253466306364
+      }
+    },
+    "val_best_mean_dice": 0.042867525945742516,
+    "train_dice_valid_samples": {
+      "HE": 948,
+      "EX": 785,
+      "MA": 1011,
+      "SE": 331
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 195.30485892295837
+  },
+  {
+    "epoch": 7,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.02222945686556185,
+    "val_loss": 0.016081814335396627,
+    "train_dice": {
+      "HE": 0.08006180910834748,
+      "EX": 0.1362314241642616,
+      "MA": 0.006630097969120393,
+      "SE": 0.16766282584368755
+    },
+    "val_dice": {
+      "HE": 0.029422351742262202,
+      "EX": 0.02542585652132613,
+      "MA": 0.0010506637165181383,
+      "SE": 0.05405790630876574
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.08193130294481914,
+      "EX": 0.05193573981523514,
+      "MA": 0.020116875569025677,
+      "SE": 0.042434632778167725
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.11826889138472707,
+      "EX": 0.07887476878730874,
+      "MA": 0.00036592483612414643,
+      "SE": 0.057900965998047275
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.029422351742262202
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.02542585652132613
+      },
+      "MA": {
+        "threshold": 0.4,
+        "dice": 0.0018129290970550342
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.05405790630876574
+      }
+    },
+    "val_best_mean_dice": 0.027679760917352275,
+    "train_dice_valid_samples": {
+      "HE": 950,
+      "EX": 778,
+      "MA": 1007,
+      "SE": 349
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 190.82828783988953
+  },
+  {
+    "epoch": 8,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.021511780961316965,
+    "val_loss": 0.015423470258012714,
+    "train_dice": {
+      "HE": 0.07726394365142498,
+      "EX": 0.1373484179416718,
+      "MA": 0.007738816385474453,
+      "SE": 0.15932797452130237
+    },
+    "val_dice": {
+      "HE": 0.02904839353070314,
+      "EX": 0.030276024599384138,
+      "MA": 0.0013105167447294303,
+      "SE": 0.06422567778537701
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.07590965429941814,
+      "EX": 0.05224451174338659,
+      "MA": 0.015937472383181255,
+      "SE": 0.045672640204429626
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.04629712865540856,
+      "EX": 0.0646810382604599,
+      "MA": 0.005830157425646719,
+      "SE": 0.059685024383820985
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.02904839353070314
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.030276024599384138
+      },
+      "MA": {
+        "threshold": 0.4,
+        "dice": 0.0017729593918457713
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.06422567778537701
+      }
+    },
+    "val_best_mean_dice": 0.031330763826827514,
+    "train_dice_valid_samples": {
+      "HE": 959,
+      "EX": 761,
+      "MA": 1042,
+      "SE": 376
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 192.92100310325623
+  },
+  {
+    "epoch": 9,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.021362448743405916,
+    "val_loss": 0.013798422498891018,
+    "train_dice": {
+      "HE": 0.0787328175133495,
+      "EX": 0.14772963767637823,
+      "MA": 0.006809822506671329,
+      "SE": 0.18407314790553603
+    },
+    "val_dice": {
+      "HE": 0.0355701894041942,
+      "EX": 0.033451248878154205,
+      "MA": 0.0017842907063986759,
+      "SE": 0.07701890964389478
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.06645161658525467,
+      "EX": 0.04442213475704193,
+      "MA": 0.014372825622558594,
+      "SE": 0.04024691879749298
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.04602974849311929,
+      "EX": 0.03580672627216891,
+      "MA": 0.002729922851645633,
+      "SE": 0.031335092884929555
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.0355701894041942
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.033451248878154205
+      },
+      "MA": {
+        "threshold": 0.4,
+        "dice": 0.0019033142633623247
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.07701890964389478
+      }
+    },
+    "val_best_mean_dice": 0.03698591554740138,
+    "train_dice_valid_samples": {
+      "HE": 948,
+      "EX": 766,
+      "MA": 1057,
+      "SE": 371
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 189.0575578212738
+  },
+  {
+    "epoch": 10,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.021969537666510042,
+    "val_loss": 0.015217106351816414,
+    "train_dice": {
+      "HE": 0.08724545224654859,
+      "EX": 0.13232218371888582,
+      "MA": 0.010953871085194236,
+      "SE": 0.17304651464372978
+    },
+    "val_dice": {
+      "HE": 0.031889080179162914,
+      "EX": 0.02690565138987765,
+      "MA": 0.0020330892037953054,
+      "SE": 0.05954211176826005
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.07423892617225647,
+      "EX": 0.05164965738852819,
+      "MA": 0.02550695339838664,
+      "SE": 0.03965664654970169
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.059731091911855494,
+      "EX": 0.062234662865337576,
+      "MA": 0.027440934392966722,
+      "SE": 0.05746514683491305
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.031889080179162914
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.02690565138987765
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.0020330892037953054
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.05954211176826005
+      }
+    },
+    "val_best_mean_dice": 0.03009248313527398,
+    "train_dice_valid_samples": {
+      "HE": 930,
+      "EX": 783,
+      "MA": 1018,
+      "SE": 391
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 192.7143292427063
+  },
+  {
+    "epoch": 11,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.019009321901276122,
+    "val_loss": 0.01294723490640621,
+    "train_dice": {
+      "HE": 0.08810126851638629,
+      "EX": 0.14529283257660927,
+      "MA": 0.014472086551831046,
+      "SE": 0.19826144048438665
+    },
+    "val_dice": {
+      "HE": 0.04661117564058508,
+      "EX": 0.03865899295424637,
+      "MA": 0.002601500985981671,
+      "SE": 0.10483718662844906
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.06255508710940678,
+      "EX": 0.04616805911064148,
+      "MA": 0.02120344837506612,
+      "SE": 0.03455840547879537
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.04022585228085518,
+      "EX": 0.032082788548187205,
+      "MA": 0.024345854689416132,
+      "SE": 0.02426629817407382
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.04661117564058508
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.03865899295424637
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.002601500985981671
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.10483718662844906
+      }
+    },
+    "val_best_mean_dice": 0.04817721405231555,
+    "train_dice_valid_samples": {
+      "HE": 929,
+      "EX": 770,
+      "MA": 1056,
+      "SE": 352
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 188.3335313796997
+  },
+  {
+    "epoch": 12,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.01891860094981623,
+    "val_loss": 0.012353966437630206,
+    "train_dice": {
+      "HE": 0.09471308612394444,
+      "EX": 0.15485111471295718,
+      "MA": 0.017006892147857555,
+      "SE": 0.20309324789021024
+    },
+    "val_dice": {
+      "HE": 0.04707352684365701,
+      "EX": 0.04433167482847753,
+      "MA": 0.0031067514483407704,
+      "SE": 0.17435714916613174
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.06172151118516922,
+      "EX": 0.04508140683174133,
+      "MA": 0.02959016462167104,
+      "SE": 0.03462853282690048
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.03853144908421918,
+      "EX": 0.024319909807098538,
+      "MA": 0.01946446270142731,
+      "SE": 0.014358420121042352
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.04707352684365701
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.04433167482847753
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.0031067514483407704
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.17435714916613174
+      }
+    },
+    "val_best_mean_dice": 0.06721727557165176,
+    "train_dice_valid_samples": {
+      "HE": 969,
+      "EX": 741,
+      "MA": 1038,
+      "SE": 366
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 191.98777747154236
+  },
+  {
+    "epoch": 13,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.019497672995605918,
+    "val_loss": 0.012698616982506426,
+    "train_dice": {
+      "HE": 0.09993033100990444,
+      "EX": 0.14274254947588322,
+      "MA": 0.01658414860300505,
+      "SE": 0.21540467774369912
+    },
+    "val_dice": {
+      "HE": 0.04040234763199974,
+      "EX": 0.03983553654203812,
+      "MA": 0.0038511777694855646,
+      "SE": 0.14860287993174454
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.06969288488229115,
+      "EX": 0.049150834480921425,
+      "MA": 0.02443024019400279,
+      "SE": 0.03681942820549011
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.051424001392565276,
+      "EX": 0.03223560230904504,
+      "MA": 0.021249635635237945,
+      "SE": 0.016724380713544394
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.04040234763199974
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.03983553654203812
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.0038511777694855646
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.14860287993174454
+      }
+    },
+    "val_best_mean_dice": 0.058172985468816996,
+    "train_dice_valid_samples": {
+      "HE": 976,
+      "EX": 800,
+      "MA": 1031,
+      "SE": 356
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 191.05223083496094
+  },
+  {
+    "epoch": 14,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.01912637420640602,
+    "val_loss": 0.011858287936189031,
+    "train_dice": {
+      "HE": 0.09856306807919939,
+      "EX": 0.14560739727659122,
+      "MA": 0.02064046224637144,
+      "SE": 0.18836503224978832
+    },
+    "val_dice": {
+      "HE": 0.05359949083046872,
+      "EX": 0.04706836764471255,
+      "MA": 0.0036220945784765663,
+      "SE": 0.14854608802254632
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.06026217838128408,
+      "EX": 0.05363676448663076,
+      "MA": 0.026701201995213825,
+      "SE": 0.03882103910048803
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.02617884182224148,
+      "EX": 0.026767871293582414,
+      "MA": 0.025173764479787725,
+      "SE": 0.018323662396716445
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.05359949083046872
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.04706836764471255
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.0036220945784765663
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.14854608802254632
+      }
+    },
+    "val_best_mean_dice": 0.06320901026905104,
+    "train_dice_valid_samples": {
+      "HE": 935,
+      "EX": 764,
+      "MA": 1065,
+      "SE": 368
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 192.88449931144714
+  },
+  {
+    "epoch": 15,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.017319442500061216,
+    "val_loss": 0.011193114239097442,
+    "train_dice": {
+      "HE": 0.10044156802580395,
+      "EX": 0.15618428831471431,
+      "MA": 0.02348097474660372,
+      "SE": 0.2284747623212296
+    },
+    "val_dice": {
+      "HE": 0.05743347499437169,
+      "EX": 0.04859149133435626,
+      "MA": 0.005833204348825596,
+      "SE": 0.19695290480334268
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.0714583545923233,
+      "EX": 0.03565764923890432,
+      "MA": 0.026870504021644592,
+      "SE": 0.027938475211461384
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.027424571447466548,
+      "EX": 0.02043533825168484,
+      "MA": 0.01718418221724661,
+      "SE": 0.01096732492901777
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.05743347499437169
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.04859149133435626
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.005833204348825596
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.19695290480334268
+      }
+    },
+    "val_best_mean_dice": 0.07720276887022406,
+    "train_dice_valid_samples": {
+      "HE": 940,
+      "EX": 764,
+      "MA": 1036,
+      "SE": 351
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 190.63814735412598
+  },
+  {
+    "epoch": 16,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.018835501701573477,
+    "val_loss": 0.012360900190452601,
+    "train_dice": {
+      "HE": 0.1055347328673618,
+      "EX": 0.15428874034723628,
+      "MA": 0.025793440113284563,
+      "SE": 0.24244445660885894
+    },
+    "val_dice": {
+      "HE": 0.04480014179948619,
+      "EX": 0.03932944710865833,
+      "MA": 0.006102093925812479,
+      "SE": 0.10879006956671473
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.07719285041093826,
+      "EX": 0.03906672696272532,
+      "MA": 0.02424948662519455,
+      "SE": 0.029309687515099842
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.04999904628647001,
+      "EX": 0.0359467205248381,
+      "MA": 0.020956742136101974,
+      "SE": 0.02406490731396173
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.04480014179948619
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.03932944710865833
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.006102093925812479
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.10879006956671473
+      }
+    },
+    "val_best_mean_dice": 0.04975543810016793,
+    "train_dice_valid_samples": {
+      "HE": 944,
+      "EX": 799,
+      "MA": 1053,
+      "SE": 363
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 193.32026028633118
+  },
+  {
+    "epoch": 17,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.01718515399405757,
+    "val_loss": 0.01156754121684388,
+    "train_dice": {
+      "HE": 0.10800864461311908,
+      "EX": 0.15378322660268207,
+      "MA": 0.029467718530712384,
+      "SE": 0.23947514727834318
+    },
+    "val_dice": {
+      "HE": 0.08076978944019472,
+      "EX": 0.054149953972386276,
+      "MA": 0.009891864759000864,
+      "SE": 0.36941097403675915
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.056946719686190285,
+      "EX": 0.04552938292423884,
+      "MA": 0.02101495862007141,
+      "SE": 0.026748336851596832
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.02038758434355259,
+      "EX": 0.031576939711445255,
+      "MA": 0.015528593604501924,
+      "SE": 0.004450045133891858
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.08076978944019472
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.054149953972386276
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.009891864759000864
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.36941097403675915
+      }
+    },
+    "val_best_mean_dice": 0.12855564555208526,
+    "train_dice_valid_samples": {
+      "HE": 951,
+      "EX": 778,
+      "MA": 1050,
+      "SE": 361
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 194.32426619529724
+  },
+  {
+    "epoch": 18,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.01838316630290009,
+    "val_loss": 0.011891937883408277,
+    "train_dice": {
+      "HE": 0.10630125304560663,
+      "EX": 0.15558893914440605,
+      "MA": 0.030655265279972543,
+      "SE": 0.2345985357065203
+    },
+    "val_dice": {
+      "HE": 0.08497272114541414,
+      "EX": 0.05490382910584626,
+      "MA": 0.007800668541511352,
+      "SE": 0.15319596244061576
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.062129758298397064,
+      "EX": 0.04294738918542862,
+      "MA": 0.026037136713663738,
+      "SE": 0.031233742833137512
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.06577872720203902,
+      "EX": 0.02061901094489976,
+      "MA": 0.018452925411494153,
+      "SE": 0.015717089862415667
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.08497272114541414
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.05490382910584626
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.007800668541511352
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.15319596244061576
+      }
+    },
+    "val_best_mean_dice": 0.07521829530834687,
+    "train_dice_valid_samples": {
+      "HE": 936,
+      "EX": 781,
+      "MA": 1033,
+      "SE": 359
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 197.7113287448883
+  },
+  {
+    "epoch": 19,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.018242274593396536,
+    "val_loss": 0.01272336716119875,
+    "train_dice": {
+      "HE": 0.11829463782282873,
+      "EX": 0.1583475152326329,
+      "MA": 0.033985215679600236,
+      "SE": 0.23827857042281725
+    },
+    "val_dice": {
+      "HE": 0.06814981247628091,
+      "EX": 0.0368396508898856,
+      "MA": 0.007705191947576223,
+      "SE": 0.21112851426005363
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.06226076434055964,
+      "EX": 0.037168229619661965,
+      "MA": 0.022187218070030212,
+      "SE": 0.026768426100413006
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.04236672053995885,
+      "EX": 0.04491445637847248,
+      "MA": 0.01981237815006783,
+      "SE": 0.015144759740092252
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.06814981247628091
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.0368396508898856
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.007705191947576223
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.21112851426005363
+      }
+    },
+    "val_best_mean_dice": 0.08095579239344909,
+    "train_dice_valid_samples": {
+      "HE": 939,
+      "EX": 792,
+      "MA": 1022,
+      "SE": 356
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 195.60276627540588
+  },
+  {
+    "epoch": 20,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.017027091125498085,
+    "val_loss": 0.011072933448841108,
+    "train_dice": {
+      "HE": 0.10734378823689608,
+      "EX": 0.15836169696861666,
+      "MA": 0.02938606087428828,
+      "SE": 0.2244149095381347
+    },
+    "val_dice": {
+      "HE": 0.06993657156651988,
+      "EX": 0.06120924064484627,
+      "MA": 0.012782704677771439,
+      "SE": 0.17150108543831075
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.06232925256093343,
+      "EX": 0.040679377814133964,
+      "MA": 0.024708983798821766,
+      "SE": 0.033097234865029655
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.0261429786486061,
+      "EX": 0.020447997082220882,
+      "MA": 0.01301696680878338,
+      "SE": 0.015645659577689673
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.06993657156651988
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.06120924064484627
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.012782704677771439
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.17150108543831075
+      }
+    },
+    "val_best_mean_dice": 0.07885740058186208,
+    "train_dice_valid_samples": {
+      "HE": 981,
+      "EX": 768,
+      "MA": 1050,
+      "SE": 368
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 194.58315563201904
+  },
+  {
+    "epoch": 21,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.01941954078488344,
+    "val_loss": 0.011380867870061989,
+    "train_dice": {
+      "HE": 0.12381077498245521,
+      "EX": 0.15721248675045477,
+      "MA": 0.030523076455900043,
+      "SE": 0.2161245184591183
+    },
+    "val_dice": {
+      "HE": 0.07578517384497466,
+      "EX": 0.0338586927054153,
+      "MA": 0.007309323868178057,
+      "SE": 0.17907612047396426
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.08279562989870708,
+      "EX": 0.051490627229213715,
+      "MA": 0.024336474637190502,
+      "SE": 0.031366618971029915
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.024691170179530195,
+      "EX": 0.0480107559185279,
+      "MA": 0.027076891966556247,
+      "SE": 0.02042727221391703
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.07578517384497466
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.0338586927054153
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.007309323868178057
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.17907612047396426
+      }
+    },
+    "val_best_mean_dice": 0.07400732772313307,
+    "train_dice_valid_samples": {
+      "HE": 932,
+      "EX": 767,
+      "MA": 1037,
+      "SE": 372
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 196.62101292610168
+  },
+  {
+    "epoch": 22,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.014588341542444247,
+    "val_loss": 0.01009604828619717,
+    "train_dice": {
+      "HE": 0.12452409383327971,
+      "EX": 0.16916067638770646,
+      "MA": 0.03352097564322107,
+      "SE": 0.2298615395290848
+    },
+    "val_dice": {
+      "HE": 0.06058135608018508,
+      "EX": 0.05892390344777833,
+      "MA": 0.009770390478837671,
+      "SE": 0.2491189642960942
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.05182700604200363,
+      "EX": 0.03372196604808172,
+      "MA": 0.023368867735068004,
+      "SE": 0.029460646212100983
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.03322708234190941,
+      "EX": 0.01881428268787108,
+      "MA": 0.022577120089217237,
+      "SE": 0.009222828734077905
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.06058135608018508
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.05892390344777833
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.009770390478837671
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.2491189642960942
+      }
+    },
+    "val_best_mean_dice": 0.09459865357572382,
+    "train_dice_valid_samples": {
+      "HE": 917,
+      "EX": 766,
+      "MA": 1020,
+      "SE": 341
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 194.58085465431213
+  },
+  {
+    "epoch": 23,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.014822334642023548,
+    "val_loss": 0.010153510357759543,
+    "train_dice": {
+      "HE": 0.12990425532258776,
+      "EX": 0.1557661753383432,
+      "MA": 0.03343995379782427,
+      "SE": 0.24184558614777157
+    },
+    "val_dice": {
+      "HE": 0.06691606803920812,
+      "EX": 0.06192417946252702,
+      "MA": 0.00827319012729056,
+      "SE": 0.23055119263712143
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.042008807261784874,
+      "EX": 0.037730845312277474,
+      "MA": 0.024148118992646534,
+      "SE": 0.03573703269163767
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.032467249780893326,
+      "EX": 0.021525342899717782,
+      "MA": 0.03497640219958205,
+      "SE": 0.009190654749736973
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.06691606803920812
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.06192417946252702
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.00827319012729056
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.23055119263712143
+      }
+    },
+    "val_best_mean_dice": 0.09191615756653679,
+    "train_dice_valid_samples": {
+      "HE": 938,
+      "EX": 759,
+      "MA": 1024,
+      "SE": 359
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 0.0001,
+    "seconds": 195.86171793937683
+  },
+  {
+    "epoch": 24,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.01529130101563803,
+    "val_loss": 0.00978016925213121,
+    "train_dice": {
+      "HE": 0.1271861598957792,
+      "EX": 0.16743240123257797,
+      "MA": 0.033541703774705244,
+      "SE": 0.2495273821518949
+    },
+    "val_dice": {
+      "HE": 0.07040287627203934,
+      "EX": 0.05567057773578858,
+      "MA": 0.012304857838898897,
+      "SE": 0.2848484019618915
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.04822886983553568,
+      "EX": 0.037647172808647156,
+      "MA": 0.023221189777056377,
+      "SE": 0.02744390070438385
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.026390783390716502,
+      "EX": 0.02153635025024414,
+      "MA": 0.02224806245220335,
+      "SE": 0.008563985312847714
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.07040287627203934
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.05567057773578858
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.012304857838898897
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.2848484019618915
+      }
+    },
+    "val_best_mean_dice": 0.10580667845215458,
+    "train_dice_valid_samples": {
+      "HE": 968,
+      "EX": 809,
+      "MA": 1036,
+      "SE": 358
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 191.00152325630188
+  },
+  {
+    "epoch": 25,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.013970592224547353,
+    "val_loss": 0.009273350382561251,
+    "train_dice": {
+      "HE": 0.13150463577900492,
+      "EX": 0.16708825232860577,
+      "MA": 0.036765275581841506,
+      "SE": 0.26470382690161426
+    },
+    "val_dice": {
+      "HE": 0.08311278254115147,
+      "EX": 0.05727685987949371,
+      "MA": 0.010372261544971756,
+      "SE": 0.21372438735480226
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.052205378810564675,
+      "EX": 0.035389592250188194,
+      "MA": 0.02228216826915741,
+      "SE": 0.02505667010943095
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.02590548364739669,
+      "EX": 0.019815550332790928,
+      "MA": 0.027158762279309724,
+      "SE": 0.011833677803607364
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.08311278254115147
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.05727685987949371
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.010372261544971756
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.21372438735480226
+      }
+    },
+    "val_best_mean_dice": 0.0911215728301048,
+    "train_dice_valid_samples": {
+      "HE": 951,
+      "EX": 774,
+      "MA": 1026,
+      "SE": 368
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 194.0630316734314
+  },
+  {
+    "epoch": 26,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.013919933560467264,
+    "val_loss": 0.009612891998066999,
+    "train_dice": {
+      "HE": 0.1368699629635524,
+      "EX": 0.16412300129349416,
+      "MA": 0.037066676567787726,
+      "SE": 0.25792872372850145
+    },
+    "val_dice": {
+      "HE": 0.07416946174776742,
+      "EX": 0.05653925140158854,
+      "MA": 0.015057181812484156,
+      "SE": 0.2984452206034993
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.049073393146197,
+      "EX": 0.036628750463326774,
+      "MA": 0.024497789641221363,
+      "SE": 0.025252796709537506
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.02512181932596784,
+      "EX": 0.02052726243671618,
+      "MA": 0.017591140183963273,
+      "SE": 0.008252977099465696
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.07416946174776742
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.05653925140158854
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.015057181812484156
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.2984452206034993
+      }
+    },
+    "val_best_mean_dice": 0.11105277889133486,
+    "train_dice_valid_samples": {
+      "HE": 922,
+      "EX": 780,
+      "MA": 1038,
+      "SE": 356
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 194.98930501937866
+  },
+  {
+    "epoch": 27,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.01417754338349048,
+    "val_loss": 0.009320597239338712,
+    "train_dice": {
+      "HE": 0.1399395816117423,
+      "EX": 0.172121503480733,
+      "MA": 0.03491135362003531,
+      "SE": 0.27021625927327964
+    },
+    "val_dice": {
+      "HE": 0.06687158463621694,
+      "EX": 0.07813179255395696,
+      "MA": 0.013268892159403273,
+      "SE": 0.3122717764575121
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.05276870975891749,
+      "EX": 0.034853652119636536,
+      "MA": 0.022748326261838276,
+      "SE": 0.02718968689441681
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.0320826580649928,
+      "EX": 0.012880420704421244,
+      "MA": 0.019652025283951508,
+      "SE": 0.007944468457839991
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.06687158463621694
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.07813179255395696
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.013268892159403273
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.3122717764575121
+      }
+    },
+    "val_best_mean_dice": 0.11763601145177231,
+    "train_dice_valid_samples": {
+      "HE": 949,
+      "EX": 773,
+      "MA": 1050,
+      "SE": 370
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 191.8584005832672
+  },
+  {
+    "epoch": 28,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.01307076280425952,
+    "val_loss": 0.009811836463592996,
+    "train_dice": {
+      "HE": 0.12669430628189307,
+      "EX": 0.17616871265292472,
+      "MA": 0.03746884756301548,
+      "SE": 0.2711550687879336
+    },
+    "val_dice": {
+      "HE": 0.07083362763525045,
+      "EX": 0.04260478720770798,
+      "MA": 0.010081252958061117,
+      "SE": 0.20345980734672658
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.0470343753695488,
+      "EX": 0.03310719132423401,
+      "MA": 0.022427454590797424,
+      "SE": 0.02453153332074483
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.027603430575446078,
+      "EX": 0.03973291794720449,
+      "MA": 0.038075326696822516,
+      "SE": 0.012343697789076128
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.07083362763525045
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.04260478720770798
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.010081252958061117
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.20345980734672658
+      }
+    },
+    "val_best_mean_dice": 0.08174486878693653,
+    "train_dice_valid_samples": {
+      "HE": 941,
+      "EX": 783,
+      "MA": 1020,
+      "SE": 340
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 190.44297099113464
+  },
+  {
+    "epoch": 29,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.014828478839666663,
+    "val_loss": 0.00889525876299247,
+    "train_dice": {
+      "HE": 0.13617010287470507,
+      "EX": 0.17150045552692056,
+      "MA": 0.04114884174815038,
+      "SE": 0.28792769975669974
+    },
+    "val_dice": {
+      "HE": 0.08477244068728348,
+      "EX": 0.0678847485586353,
+      "MA": 0.017471089634592787,
+      "SE": 0.3580878016560577
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.052427257100741066,
+      "EX": 0.042165517807006836,
+      "MA": 0.025203806658585865,
+      "SE": 0.025187917053699493
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.022067115200977577,
+      "EX": 0.017116787598321314,
+      "MA": 0.016214947951467412,
+      "SE": 0.006480839373053689
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.08477244068728348
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.0678847485586353
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.017471089634592787
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.3580878016560577
+      }
+    },
+    "val_best_mean_dice": 0.1320540201341423,
+    "train_dice_valid_samples": {
+      "HE": 967,
+      "EX": 822,
+      "MA": 1025,
+      "SE": 385
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 196.39855194091797
+  },
+  {
+    "epoch": 30,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.012838066380480719,
+    "val_loss": 0.00936202836791741,
+    "train_dice": {
+      "HE": 0.13099411268954847,
+      "EX": 0.17121160274837166,
+      "MA": 0.03715226696724414,
+      "SE": 0.2825144239906274
+    },
+    "val_dice": {
+      "HE": 0.09913148131096165,
+      "EX": 0.07879905726598657,
+      "MA": 0.018800829015107767,
+      "SE": 0.36840846805378447
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.046000659465789795,
+      "EX": 0.031632291773955025,
+      "MA": 0.021661984423796337,
+      "SE": 0.024677870174249012
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.01578411803041634,
+      "EX": 0.014809452879585717,
+      "MA": 0.013475483381434492,
+      "SE": 0.006379524025281793
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.09913148131096165
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.07879905726598657
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.018800829015107767
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.36840846805378447
+      }
+    },
+    "val_best_mean_dice": 0.14128495891146012,
+    "train_dice_valid_samples": {
+      "HE": 938,
+      "EX": 774,
+      "MA": 1051,
+      "SE": 359
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 191.54570937156677
+  },
+  {
+    "epoch": 31,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.013918278529734275,
+    "val_loss": 0.009275912738486424,
+    "train_dice": {
+      "HE": 0.14025906445897374,
+      "EX": 0.16335419723471192,
+      "MA": 0.03763267542047859,
+      "SE": 0.2823018763721709
+    },
+    "val_dice": {
+      "HE": 0.08281772557422624,
+      "EX": 0.08755684503610583,
+      "MA": 0.018885451016213858,
+      "SE": 0.3824907965784849
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.05518501748641332,
+      "EX": 0.04128918548425039,
+      "MA": 0.024838775396347046,
+      "SE": 0.027043305337429047
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.01767249356367086,
+      "EX": 0.012725282950620902,
+      "MA": 0.014972285220497534,
+      "SE": 0.0041139301549839346
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.08281772557422624
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.08755684503610583
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.018885451016213858
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.3824907965784849
+      }
+    },
+    "val_best_mean_dice": 0.1429377045512577,
+    "train_dice_valid_samples": {
+      "HE": 955,
+      "EX": 795,
+      "MA": 1042,
+      "SE": 382
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 190.83095359802246
+  },
+  {
+    "epoch": 32,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.013093985894369083,
+    "val_loss": 0.008664809367400687,
+    "train_dice": {
+      "HE": 0.1491763955902114,
+      "EX": 0.16922610375202365,
+      "MA": 0.03627608062490475,
+      "SE": 0.3069775026033884
+    },
+    "val_dice": {
+      "HE": 0.09250785516929376,
+      "EX": 0.07790002518373987,
+      "MA": 0.015205790302857305,
+      "SE": 0.36728687497765516
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.045340572794278465,
+      "EX": 0.038555584847927094,
+      "MA": 0.02331823855638504,
+      "SE": 0.022638238966464996
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.019958285320746273,
+      "EX": 0.014236048648231909,
+      "MA": 0.020251424689041942,
+      "SE": 0.0056050802630029225
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.09250785516929376
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.07790002518373987
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.015205790302857305
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.36728687497765516
+      }
+    },
+    "val_best_mean_dice": 0.13822513640838652,
+    "train_dice_valid_samples": {
+      "HE": 901,
+      "EX": 765,
+      "MA": 1034,
+      "SE": 318
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 197.92861676216125
+  },
+  {
+    "epoch": 33,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.014014100006662368,
+    "val_loss": 0.00829512746567094,
+    "train_dice": {
+      "HE": 0.14392322357451418,
+      "EX": 0.17935156703411048,
+      "MA": 0.037161322673190125,
+      "SE": 0.3065112006219317
+    },
+    "val_dice": {
+      "HE": 0.08394928801541043,
+      "EX": 0.062218967771184616,
+      "MA": 0.01098816336668802,
+      "SE": 0.33435469216039015
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.06285746147235234,
+      "EX": 0.03547549247741699,
+      "MA": 0.02481907109419505,
+      "SE": 0.021235438684622448
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.024350030837874664,
+      "EX": 0.019588450362023554,
+      "MA": 0.03148897580410305,
+      "SE": 0.007504533461638187
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.08394928801541043
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.062218967771184616
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.01098816336668802
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.33435469216039015
+      }
+    },
+    "val_best_mean_dice": 0.1228777778284183,
+    "train_dice_valid_samples": {
+      "HE": 955,
+      "EX": 793,
+      "MA": 1053,
+      "SE": 349
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 193.15411400794983
+  },
+  {
+    "epoch": 34,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.011775165064352767,
+    "val_loss": 0.008609533522453083,
+    "train_dice": {
+      "HE": 0.13366950749380824,
+      "EX": 0.17297792769382697,
+      "MA": 0.04028111141049056,
+      "SE": 0.30300346423637703
+    },
+    "val_dice": {
+      "HE": 0.07286781508607411,
+      "EX": 0.04428474389124608,
+      "MA": 0.009334396683808529,
+      "SE": 0.17801622646795803
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.04737443973620733,
+      "EX": 0.03162878751754761,
+      "MA": 0.022175634900728863,
+      "SE": 0.021921594937642414
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.031204785759511747,
+      "EX": 0.028160687536001205,
+      "MA": 0.037398488898026314,
+      "SE": 0.014179119350094544
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.07286781508607411
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.04428474389124608
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.009334396683808529
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.17801622646795803
+      }
+    },
+    "val_best_mean_dice": 0.0761257955322717,
+    "train_dice_valid_samples": {
+      "HE": 960,
+      "EX": 779,
+      "MA": 1035,
+      "SE": 332
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 194.79644346237183
+  },
+  {
+    "epoch": 35,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.013545267646232567,
+    "val_loss": 0.008408376947045326,
+    "train_dice": {
+      "HE": 0.14451602719876067,
+      "EX": 0.18241958510428083,
+      "MA": 0.03822535877266238,
+      "SE": 0.29910418565558855
+    },
+    "val_dice": {
+      "HE": 0.08667894753223632,
+      "EX": 0.0595987253970858,
+      "MA": 0.009843243130793175,
+      "SE": 0.25605067835990775
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.058885373175144196,
+      "EX": 0.033491541941960655,
+      "MA": 0.025449134409427643,
+      "SE": 0.024193706611792248
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.022630852205972923,
+      "EX": 0.022258040740301733,
+      "MA": 0.03642852682816355,
+      "SE": 0.009672415883917557
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.08667894753223632
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.0595987253970858
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.009843243130793175
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.25605067835990775
+      }
+    },
+    "val_best_mean_dice": 0.10304289860500576,
+    "train_dice_valid_samples": {
+      "HE": 932,
+      "EX": 764,
+      "MA": 1054,
+      "SE": 359
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 193.89880275726318
+  },
+  {
+    "epoch": 36,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.011338393595410078,
+    "val_loss": 0.00824747022691389,
+    "train_dice": {
+      "HE": 0.14030366207819406,
+      "EX": 0.18484161535388982,
+      "MA": 0.04277251453216498,
+      "SE": 0.3175374478205485
+    },
+    "val_dice": {
+      "HE": 0.10799858032569157,
+      "EX": 0.09322148043176402,
+      "MA": 0.0127307814122601,
+      "SE": 0.396716256647609
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.05131292839845022,
+      "EX": 0.027372874319553375,
+      "MA": 0.021814847985903423,
+      "SE": 0.022701745231946308
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.01782040846975226,
+      "EX": 0.011910579118289445,
+      "MA": 0.027971352989736357,
+      "SE": 0.005582990173838641
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.10799858032569157
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.09322148043176402
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.0127307814122601
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.396716256647609
+      }
+    },
+    "val_best_mean_dice": 0.15266677470433118,
+    "train_dice_valid_samples": {
+      "HE": 949,
+      "EX": 755,
+      "MA": 1032,
+      "SE": 377
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 198.27540040016174
+  },
+  {
+    "epoch": 37,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.01228397166205682,
+    "val_loss": 0.007870923483981782,
+    "train_dice": {
+      "HE": 0.15947568951243604,
+      "EX": 0.1938395508865992,
+      "MA": 0.04171430984745486,
+      "SE": 0.32112681043506647
+    },
+    "val_dice": {
+      "HE": 0.10809297876152317,
+      "EX": 0.0702076438760412,
+      "MA": 0.011718062317055283,
+      "SE": 0.30129181719276793
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.05296871314446131,
+      "EX": 0.03233157594998678,
+      "MA": 0.023188012341658275,
+      "SE": 0.021448249618212383
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.021496938443497607,
+      "EX": 0.01698633999024567,
+      "MA": 0.029528161216723293,
+      "SE": 0.00953198484096088
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.10809297876152317
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.0702076438760412
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.011718062317055283
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.30129181719276793
+      }
+    },
+    "val_best_mean_dice": 0.1228276255368469,
+    "train_dice_valid_samples": {
+      "HE": 945,
+      "EX": 783,
+      "MA": 1021,
+      "SE": 350
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 193.16532516479492
+  },
+  {
+    "epoch": 38,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.012280452663356112,
+    "val_loss": 0.0075051051645770965,
+    "train_dice": {
+      "HE": 0.14829948351194128,
+      "EX": 0.18178915241379526,
+      "MA": 0.03674691078035425,
+      "SE": 0.29920882246915426
+    },
+    "val_dice": {
+      "HE": 0.13181427265599832,
+      "EX": 0.09236404683062996,
+      "MA": 0.015688399078719543,
+      "SE": 0.3389822306154772
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.05122212072213491,
+      "EX": 0.03238434841235479,
+      "MA": 0.025160486499468487,
+      "SE": 0.021673085788885754
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.016040691615719544,
+      "EX": 0.011952776657907586,
+      "MA": 0.02210683316776627,
+      "SE": 0.006536855215304776
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.13181427265599832
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.09236404683062996
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.015688399078719543
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.3389822306154772
+      }
+    },
+    "val_best_mean_dice": 0.14471223729520627,
+    "train_dice_valid_samples": {
+      "HE": 952,
+      "EX": 790,
+      "MA": 1044,
+      "SE": 384
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 196.62322640419006
+  },
+  {
+    "epoch": 39,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.011807869297911854,
+    "val_loss": 0.007199940696708708,
+    "train_dice": {
+      "HE": 0.13886995627813004,
+      "EX": 0.18262962291382923,
+      "MA": 0.04105970398334496,
+      "SE": 0.3045210722999657
+    },
+    "val_dice": {
+      "HE": 0.12309748043957273,
+      "EX": 0.0923767045032287,
+      "MA": 0.010744183521830675,
+      "SE": 0.2713866892249085
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.05624852826197942,
+      "EX": 0.02979731063048045,
+      "MA": 0.02298281341791153,
+      "SE": 0.019963038464387257
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.013604339800382914,
+      "EX": 0.011967297594406102,
+      "MA": 0.03427380519477945,
+      "SE": 0.007464599599571605
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.12309748043957273
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.0923767045032287
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.010744183521830675
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.2713866892249085
+      }
+    },
+    "val_best_mean_dice": 0.12440126442238515,
+    "train_dice_valid_samples": {
+      "HE": 955,
+      "EX": 769,
+      "MA": 1038,
+      "SE": 382
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 194.4762954711914
+  },
+  {
+    "epoch": 40,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.014725923788668126,
+    "val_loss": 0.008126311916732949,
+    "train_dice": {
+      "HE": 0.15128051444122317,
+      "EX": 0.16008469000955586,
+      "MA": 0.040473751547928385,
+      "SE": 0.2799952160567045
+    },
+    "val_dice": {
+      "HE": 0.07876496437722735,
+      "EX": 0.06314315047600995,
+      "MA": 0.009368593338876963,
+      "SE": 0.2726485661642496
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.060166982312997185,
+      "EX": 0.047137968242168427,
+      "MA": 0.024100807805856068,
+      "SE": 0.028925811251004536
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.033642231829856574,
+      "EX": 0.020402662358001658,
+      "MA": 0.04085851970471834,
+      "SE": 0.008004946487122461
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.07876496437722735
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.06314315047600995
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.009368593338876963
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.2726485661642496
+      }
+    },
+    "val_best_mean_dice": 0.10598131858909096,
+    "train_dice_valid_samples": {
+      "HE": 934,
+      "EX": 761,
+      "MA": 1054,
+      "SE": 358
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 198.77303767204285
+  },
+  {
+    "epoch": 41,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.012673642413384298,
+    "val_loss": 0.00766265364176275,
+    "train_dice": {
+      "HE": 0.1461462963033113,
+      "EX": 0.16262685388932355,
+      "MA": 0.0428890935079609,
+      "SE": 0.3009703124216887
+    },
+    "val_dice": {
+      "HE": 0.0980549297847711,
+      "EX": 0.0799547074281651,
+      "MA": 0.013729103459891949,
+      "SE": 0.314327510073781
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.059831663966178894,
+      "EX": 0.03906826674938202,
+      "MA": 0.024509777625401814,
+      "SE": 0.021701723337173462
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.02239073205151056,
+      "EX": 0.016596859419032148,
+      "MA": 0.026532012577119627,
+      "SE": 0.006915780127440628
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.0980549297847711
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.0799547074281651
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.013729103459891949
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.314327510073781
+      }
+    },
+    "val_best_mean_dice": 0.1265165626866523,
+    "train_dice_valid_samples": {
+      "HE": 977,
+      "EX": 798,
+      "MA": 1063,
+      "SE": 360
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 194.03129363059998
+  },
+  {
+    "epoch": 42,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.010623194408595717,
+    "val_loss": 0.007357221965571778,
+    "train_dice": {
+      "HE": 0.15509998599674846,
+      "EX": 0.19582581165074467,
+      "MA": 0.04100416533374436,
+      "SE": 0.3172142402036852
+    },
+    "val_dice": {
+      "HE": 0.11938456070724776,
+      "EX": 0.10718022686415825,
+      "MA": 0.018624224304927117,
+      "SE": 0.33868388502403746
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.04029048979282379,
+      "EX": 0.02730148782332738,
+      "MA": 0.023268771668275196,
+      "SE": 0.017505792280038197
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.01457890966220906,
+      "EX": 0.011326850146839493,
+      "MA": 0.01861342376000003,
+      "SE": 0.007048466340883782
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.11938456070724776
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.10718022686415825
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.018624224304927117
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.33868388502403746
+      }
+    },
+    "val_best_mean_dice": 0.14596822422509265,
+    "train_dice_valid_samples": {
+      "HE": 929,
+      "EX": 768,
+      "MA": 1072,
+      "SE": 368
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 5e-05,
+    "seconds": 194.87981534004211
+  },
+  {
+    "epoch": 43,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.012642338789279716,
+    "val_loss": 0.007370237592332715,
+    "train_dice": {
+      "HE": 0.15605834634578575,
+      "EX": 0.1787663328707562,
+      "MA": 0.04246977762022738,
+      "SE": 0.31858780201278875
+    },
+    "val_dice": {
+      "HE": 0.10958379594427822,
+      "EX": 0.0858653071673884,
+      "MA": 0.010605947594299461,
+      "SE": 0.2628047315533771
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.044527940452098846,
+      "EX": 0.04407472411791483,
+      "MA": 0.02254882703224818,
+      "SE": 0.022667964299519856
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.018631362895432272,
+      "EX": 0.016665363292160788,
+      "MA": 0.03617244017751593,
+      "SE": 0.008864954898231909
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.10958379594427822
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.0858653071673884
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.010605947594299461
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.2628047315533771
+      }
+    },
+    "val_best_mean_dice": 0.11721494556483579,
+    "train_dice_valid_samples": {
+      "HE": 983,
+      "EX": 821,
+      "MA": 1062,
+      "SE": 364
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 2.5e-05,
+    "seconds": 196.21419858932495
+  },
+  {
+    "epoch": 44,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.012122183357299775,
+    "val_loss": 0.007202549243733387,
+    "train_dice": {
+      "HE": 0.15851567678267636,
+      "EX": 0.2051574589492935,
+      "MA": 0.04287550071290193,
+      "SE": 0.3093963461639871
+    },
+    "val_dice": {
+      "HE": 0.11519431161428431,
+      "EX": 0.09386852534784787,
+      "MA": 0.015550046044430046,
+      "SE": 0.31211739496956037
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.048625451823075615,
+      "EX": 0.0312812402844429,
+      "MA": 0.02191750705242157,
+      "SE": 0.017275509734948475
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.02070888220087478,
+      "EX": 0.013708882622028651,
+      "MA": 0.0234850633301233,
+      "SE": 0.007896749596846732
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.11519431161428431
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.09386852534784787
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.015550046044430046
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.31211739496956037
+      }
+    },
+    "val_best_mean_dice": 0.13418256949403065,
+    "train_dice_valid_samples": {
+      "HE": 914,
+      "EX": 758,
+      "MA": 1040,
+      "SE": 355
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 2.5e-05,
+    "seconds": 197.16787195205688
+  },
+  {
+    "epoch": 45,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.01095863618929299,
+    "val_loss": 0.0068742114700527,
+    "train_dice": {
+      "HE": 0.16088649864121082,
+      "EX": 0.198692743439868,
+      "MA": 0.04280040142506204,
+      "SE": 0.3260097886849902
+    },
+    "val_dice": {
+      "HE": 0.11870398057575247,
+      "EX": 0.10581551837748375,
+      "MA": 0.012751414440572262,
+      "SE": 0.2872554631687181
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.0617766280968984,
+      "EX": 0.02827344834804535,
+      "MA": 0.023233493169148762,
+      "SE": 0.0167166863878568
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.017185537438643605,
+      "EX": 0.011299981588595793,
+      "MA": 0.029130624509171435,
+      "SE": 0.007587146749229808
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.11870398057575247
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.10581551837748375
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.012751414440572262
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.2872554631687181
+      }
+    },
+    "val_best_mean_dice": 0.13113159414063164,
+    "train_dice_valid_samples": {
+      "HE": 939,
+      "EX": 785,
+      "MA": 1047,
+      "SE": 353
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 2.5e-05,
+    "seconds": 194.9840030670166
+  },
+  {
+    "epoch": 46,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.010660466302779574,
+    "val_loss": 0.007411897082456807,
+    "train_dice": {
+      "HE": 0.15502278924035448,
+      "EX": 0.18824644933560306,
+      "MA": 0.044009864153849776,
+      "SE": 0.3489179609775584
+    },
+    "val_dice": {
+      "HE": 0.14080396709980164,
+      "EX": 0.13849418826293255,
+      "MA": 0.016153739045628092,
+      "SE": 0.4149272687906443
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.051730106274286904,
+      "EX": 0.02677004784345627,
+      "MA": 0.021942853927612305,
+      "SE": 0.01870381087064743
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.013773692281622636,
+      "EX": 0.008419995588299475,
+      "MA": 0.022923805799923445,
+      "SE": 0.0046155527969332115
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.14080396709980164
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.13849418826293255
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.016153739045628092
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.4149272687906443
+      }
+    },
+    "val_best_mean_dice": 0.17759479079975166,
+    "train_dice_valid_samples": {
+      "HE": 949,
+      "EX": 776,
+      "MA": 1024,
+      "SE": 345
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 2.5e-05,
+    "seconds": 194.8011212348938
+  },
+  {
+    "epoch": 47,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.011237512315883649,
+    "val_loss": 0.006974911973530414,
+    "train_dice": {
+      "HE": 0.15423114453448708,
+      "EX": 0.19224705934725903,
+      "MA": 0.040428020430076775,
+      "SE": 0.307867262186737
+    },
+    "val_dice": {
+      "HE": 0.1251881470681226,
+      "EX": 0.11811044304699138,
+      "MA": 0.015336864063459816,
+      "SE": 0.33707527967906276
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.054289594292640686,
+      "EX": 0.029813701907793682,
+      "MA": 0.022083677351474762,
+      "SE": 0.018864554663499195
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.016758868568821958,
+      "EX": 0.010193659188716035,
+      "MA": 0.02419442134468179,
+      "SE": 0.006264561101009971
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.1251881470681226
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.11811044304699138
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.015336864063459816
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.33707527967906276
+      }
+    },
+    "val_best_mean_dice": 0.14892768346440913,
+    "train_dice_valid_samples": {
+      "HE": 951,
+      "EX": 777,
+      "MA": 1037,
+      "SE": 366
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 2.5e-05,
+    "seconds": 196.81403398513794
+  },
+  {
+    "epoch": 48,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.011400539269938326,
+    "val_loss": 0.006870514256942192,
+    "train_dice": {
+      "HE": 0.15397456467755744,
+      "EX": 0.20691211383598737,
+      "MA": 0.04393971146341893,
+      "SE": 0.34137846745376876
+    },
+    "val_dice": {
+      "HE": 0.141386533287906,
+      "EX": 0.10578273852234302,
+      "MA": 0.017203394803359653,
+      "SE": 0.3317981597555931
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.05240245908498764,
+      "EX": 0.02567373961210251,
+      "MA": 0.021612922350565594,
+      "SE": 0.01790958394606908
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.014316553838158908,
+      "EX": 0.010493780437268709,
+      "MA": 0.021533644905215817,
+      "SE": 0.006331539173659526
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.141386533287906
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.10578273852234302
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.017203394803359653
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.3317981597555931
+      }
+    },
+    "val_best_mean_dice": 0.14904270659230046,
+    "train_dice_valid_samples": {
+      "HE": 925,
+      "EX": 780,
+      "MA": 1056,
+      "SE": 327
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 2.5e-05,
+    "seconds": 192.39168620109558
+  },
+  {
+    "epoch": 49,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.012294319594478327,
+    "val_loss": 0.006781529741449244,
+    "train_dice": {
+      "HE": 0.1625733142588197,
+      "EX": 0.2124275378701385,
+      "MA": 0.043777451805958933,
+      "SE": 0.33621671056250035
+    },
+    "val_dice": {
+      "HE": 0.14142122136148733,
+      "EX": 0.13978000503519308,
+      "MA": 0.016182212935139734,
+      "SE": 0.33521110932667586
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.046834501127401985,
+      "EX": 0.02528657764196396,
+      "MA": 0.021617946525414784,
+      "SE": 0.018292975922425587
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.0122407361080772,
+      "EX": 0.007866141680431994,
+      "MA": 0.02289441267126485,
+      "SE": 0.006777065708056877
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.14142122136148733
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.13978000503519308
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.016182212935139734
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.33521110932667586
+      }
+    },
+    "val_best_mean_dice": 0.15814863716462402,
+    "train_dice_valid_samples": {
+      "HE": 977,
+      "EX": 821,
+      "MA": 1067,
+      "SE": 358
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 2.5e-05,
+    "seconds": 185.92457103729248
+  },
+  {
+    "epoch": 50,
+    "image_size": 512,
+    "patch_size": 512,
+    "patches_per_epoch": 1532,
+    "full_image_sample_prob": 0.5,
+    "lesion_crop_prob": 0.5,
+    "lesion_sample_weights": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "class_weight_multiplier": {
+      "HE": 1.0,
+      "EX": 1.0,
+      "MA": 2.0,
+      "SE": 1.0
+    },
+    "loss_mask_dilation": {
+      "HE": 0,
+      "EX": 0,
+      "MA": 1,
+      "SE": 0
+    },
+    "train_loss": 0.011464766754377293,
+    "val_loss": 0.0071212938930464275,
+    "train_dice": {
+      "HE": 0.14703132315707182,
+      "EX": 0.20274621502092455,
+      "MA": 0.04499264965551604,
+      "SE": 0.3283761010334771
+    },
+    "val_dice": {
+      "HE": 0.14267255576838433,
+      "EX": 0.12908138215973758,
+      "MA": 0.016780778554014185,
+      "SE": 0.3526806812733412
+    },
+    "train_pred_positive_rate": {
+      "HE": 0.05110157032807668,
+      "EX": 0.02643716335296631,
+      "MA": 0.02206276108821233,
+      "SE": 0.018362996478875477
+    },
+    "val_pred_positive_rate": {
+      "HE": 0.01295179569799649,
+      "EX": 0.008435048555072985,
+      "MA": 0.022609103471040726,
+      "SE": 0.006784298555239251
+    },
+    "val_best_thresholds": {
+      "HE": {
+        "threshold": 0.5,
+        "dice": 0.14267255576838433
+      },
+      "EX": {
+        "threshold": 0.5,
+        "dice": 0.12908138215973758
+      },
+      "MA": {
+        "threshold": 0.5,
+        "dice": 0.016780778554014185
+      },
+      "SE": {
+        "threshold": 0.5,
+        "dice": 0.3526806812733412
+      }
+    },
+    "val_best_mean_dice": 0.16030384943886933,
+    "train_dice_valid_samples": {
+      "HE": 957,
+      "EX": 791,
+      "MA": 1064,
+      "SE": 366
+    },
+    "val_dice_valid_samples": {
+      "HE": 113,
+      "EX": 69,
+      "MA": 132,
+      "SE": 86
+    },
+    "lr": 2.5e-05,
+    "seconds": 204.46350193023682
+  }
+]

@@ -1,0 +1,5 @@
+sample=007-5851-300
+classes_present=4
+total_pixels=51468
+ma_pixels=7800
+counts={'HE': 11196, 'EX': 1784, 'MA': 7800, 'SE': 30688}
